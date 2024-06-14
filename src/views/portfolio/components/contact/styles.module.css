@@ -1,0 +1,26 @@
+.input__div {
+  display: flex;
+  flex-direction: column;
+  width: 45%;
+}
+
+@media (max-width: 768px) {
+  .input__div {
+    width: 100%;
+  }
+}
+
+.input__style {
+  border-bottom: 2px solid black;
+  padding: 0.5rem;
+  min-height: 36px;
+  background-color: transparent;
+}
+
+:global(.dark) .input__style {
+  border-bottom: 2px solid white;
+}
+
+.input__style:focus {
+  outline: none;
+}
