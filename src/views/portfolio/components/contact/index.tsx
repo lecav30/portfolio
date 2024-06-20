@@ -15,7 +15,7 @@ const Contact = () => {
         <form className="flex flex-col gap-6 items-center w-full md:gap-12 lg:w-6/12">
           <div className="flex flex-col gap-y-8 md:flex-row md:justify-between w-full">
             <div className={Styles.input__div}>
-              <label for="name">Name</label>
+              <label htmlFor="name">Name</label>
               <input
                 className={Styles.input__style}
                 type="text"
@@ -25,7 +25,7 @@ const Contact = () => {
               />
             </div>
             <div className={Styles.input__div}>
-              <label for="email">Email</label>
+              <label htmlFor="email">Email</label>
               <input
                 className={Styles.input__style}
                 type="email"
@@ -36,7 +36,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label for="message">Message</label>
+            <label htmlFor="message">Message</label>
             <textarea
               className={`${Styles.input__style} resize-y`}
               id="message"

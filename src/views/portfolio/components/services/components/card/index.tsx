@@ -12,7 +12,11 @@ interface Props {
 const Card: FC<Props> = (props) => {
   const [showTechnologies, setShowTechnologies] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
-  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState<number>(0);
+
+  useEffect(() => {
+    setScreenWidth(window.innerWidth);
+  }, []);
 
   const { resolvedTheme } = useTheme();
 
