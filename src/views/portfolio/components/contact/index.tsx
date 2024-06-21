@@ -10,7 +10,7 @@ const Contact = () => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -28,7 +28,8 @@ const Contact = () => {
     formDataObj.append("message", formData.message);
 
     try {
-      const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_FORM_URL, {
+      const formUrl = process.env.NEXT_PUBLIC_FORMSPREE_FORM_URL || "";
+      const res = await fetch(formUrl, {
         method: "POST",
         body: formDataObj,
         headers: {
