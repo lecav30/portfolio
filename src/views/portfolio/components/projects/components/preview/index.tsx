@@ -4,6 +4,7 @@ import { FC, ReactNode, useState } from "react";
 interface PreviewProps {
   description: string;
   children?: ReactNode;
+  url?: string;
 }
 
 const Preview: FC<PreviewProps> = (props) => {
@@ -28,7 +29,7 @@ const Preview: FC<PreviewProps> = (props) => {
           className="mt-5 border-2 border-white bg-main w-fit rounded-lg px-2
           py-1"
           onClick={() =>
-            window.open("https://lecav-startpage.netlify.app/", "_blank")
+            window.open(props.url, "_blank")
           }
         >
           Visit website
