@@ -1,14 +1,8 @@
-"use client";
 import { useTheme } from "next-themes";
 import { Moon, Sun } from "lucide-react";
-import { useEffect } from "react";
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
-
-  useEffect(() => {
-    console.log("theme", theme);
-  }, [theme]);
 
   const toggleTheme = () => {
     if (theme === "dark") {
