@@ -1,5 +1,5 @@
 import { useTheme } from "next-themes";
-import { Moon, Sun } from "lucide-react";
+import { Palette } from "lucide-react";
 
 const ThemeChanger = () => {
   const { theme, setTheme } = useTheme();
@@ -13,11 +13,9 @@ const ThemeChanger = () => {
   };
 
   return (
-    <div>
-      <button onClick={() => toggleTheme()} className="relative">
-        {theme === "dark" ? <Sun /> : <Moon />}
-      </button>
-    </div>
+    <button onClick={() => toggleTheme()} className="relative">
+      <Palette />
+    </button>
   );
 };
 
