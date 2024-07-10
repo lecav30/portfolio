@@ -1,5 +1,4 @@
 "use client";
-import Image from "next/image";
 import Card from "./components/card";
 import Frontend from "./components/frontend";
 import Backend from "./components/backend";

@@ -57,7 +57,7 @@ const Card: FC<Props> = (props) => {
           {props.children}
         </div>
         <div id="about" className="p-4 flex flex-col gap-12  max-w-[704px]">
-          <p className="mt-4 italic">{props.description}</p>
+          <p className="mt-4">{props.description}</p>
           <div>
             <p className="mb-4 font-semibold">Technologies that I have used:</p>
             <ul id="skills" className="flex flex-wrap gap-4 ">
