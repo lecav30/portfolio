@@ -40,7 +40,7 @@ const Header = () => {
           href="#hero"
           onClick={() => {
             setActiveSection(sections[0]);
-            setShowMenu(!showMenu);
+            setShowMenu(false);
           }}
         >
           <Laptop />
