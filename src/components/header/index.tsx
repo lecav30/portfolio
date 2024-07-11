@@ -1,19 +1,32 @@
 "use client";
 import { Laptop, Menu } from "lucide-react";
 import ThemeChanger from "../themeChanger";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 const Header = () => {
-  const [activeSection, setActiveSection] = useState("hero");
+  const sections = ["hero", "services", "experience", "projects", "contact"];
+  const [activeSection, setActiveSection] = useState(sections[0]);
   const [showMenu, setShowMenu] = useState(false);
   const { resolvedTheme } = useTheme();
 
-  const toggleMenu = () => {
-    if (showMenu) {
-      setShowMenu(false);
-    } else setShowMenu(true);
-  };
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll("section");
+      const scrollPosition = window.scrollY + 100;
+      sections.forEach((section) => {
+        if (
+          scrollPosition >= section.offsetTop &&
+          scrollPosition < section.offsetTop + section.offsetHeight
+        ) {
+          setActiveSection(section.id);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [showMenu]);
 
   return (
     <div
@@ -23,7 +36,13 @@ const Header = () => {
         ${showMenu && resolvedTheme === "light" && "bg-white"}`}
     >
       <div className="flex gap-4 items-center">
-        <a href="#hero">
+        <a
+          href="#hero"
+          onClick={() => {
+            setActiveSection(sections[0]);
+            setShowMenu(false);
+          }}
+        >
           <Laptop />
         </a>
       </div>
@@ -51,7 +70,7 @@ const Header = () => {
               transition-all duration-200 ease-in-out`}
               href="#hero"
               onClick={() => {
-                setActiveSection("hero");
+                setActiveSection(sections[0]);
                 setShowMenu(!showMenu);
               }}
             >
@@ -65,7 +84,7 @@ const Header = () => {
               transition-all duration-200 ease-in-out`}
               href="#services"
               onClick={() => {
-                setActiveSection("services");
+                setActiveSection(sections[1]);
                 setShowMenu(!showMenu);
               }}
             >
@@ -79,7 +98,7 @@ const Header = () => {
               transition-all duration-200 ease-in-out`}
               href="#experience"
               onClick={() => {
-                setActiveSection("experience");
+                setActiveSection(sections[2]);
                 setShowMenu(!showMenu);
               }}
             >
@@ -93,7 +112,7 @@ const Header = () => {
               transition-all duration-200 ease-in-out`}
               href="#projects"
               onClick={() => {
-                setActiveSection("projects");
+                setActiveSection(sections[3]);
                 setShowMenu(!showMenu);
               }}
             >
@@ -107,7 +126,7 @@ const Header = () => {
               transition-all duration-200 ease-in-out`}
               href="#contact"
               onClick={() => {
-                setActiveSection("contact");
+                setActiveSection(sections[4]);
                 setShowMenu(!showMenu);
               }}
             >

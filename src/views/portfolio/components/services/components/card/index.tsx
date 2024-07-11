@@ -45,8 +45,9 @@ const Card: FC<Props> = (props) => {
   if (isDesktop) {
     return (
       <div
-        className="rounded-xl shadow-lg hover:border-[#6600FF] hover:border-s-4
-        hover:border-b-[3px] min-h-[310px] relative border__show flex gap-12 py-5 px-10"
+        className={`${resolvedTheme === "dark" && "shadow-white/20"} shadow-lg rounded-xl
+          hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px]
+          relative border__show flex gap-12 py-5 px-10`}
       >
         <div
           id="presentation"
@@ -57,7 +58,7 @@ const Card: FC<Props> = (props) => {
           {props.children}
         </div>
         <div id="about" className="p-4 flex flex-col gap-12  max-w-[704px]">
-          <p className="mt-4 italic">{props.description}</p>
+          <p className="mt-4">{props.description}</p>
           <div>
             <p className="mb-4 font-semibold">Technologies that I have used:</p>
             <ul id="skills" className="flex flex-wrap gap-4 ">
@@ -73,8 +74,9 @@ const Card: FC<Props> = (props) => {
 
   return (
     <div
-      className="p-4 rounded-xl shadow-lg hover:border-[#6600FF] hover:border-s-4
-      hover:border-b-[3px] min-h-[310px] min-w-[240px] max-w-[310px] relative border__show"
+      className={`${resolvedTheme === "dark" && "shadow-white/20"} shadow-lg p-4 rounded-xl
+        hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px] min-w-[240px]
+        max-w-[310px] relative border__show`}
     >
       {!showAbout && (
         <div

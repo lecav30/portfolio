@@ -16,7 +16,7 @@ export default function RootLayout({
       <html
         lang="en"
         suppressHydrationWarning
-        className={sourceCodePro.className}
+        className={`${sourceCodePro.className} scroll-smooth`}
       >
         <head />
         <body className="dark:bg-dark">

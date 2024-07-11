@@ -2,7 +2,7 @@ import { Mail, Linkedin, Github, Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer
+    <div
       className="flex flex-col gap-12 h-full items-center mt-32 mb-16 sm:flex-row
       sm:justify-between sm:gap-0"
     >
@@ -53,7 +53,7 @@ const Footer = () => {
           Résumé
         </a>
       </div>
-    </footer>
+    </div>
   );
 };
 
