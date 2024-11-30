@@ -33,13 +33,13 @@ const Footer = () => {
           >
             <Github />
           </a>
-          <a
+          {/* <a
             href="https://www.instagram.com/sebastian_lev9/"
             target="_blank"
             className="btn btn-primary"
           >
             <Instagram />
-          </a>
+          </a> */}
         </div>
       </div>
 
