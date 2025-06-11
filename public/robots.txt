@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://portfolio-sebastianlevano.vercel.app
+
+# Sitemaps
+Sitemap: https://portfolio-sebastianlevano.vercel.app/sitemap.xml
