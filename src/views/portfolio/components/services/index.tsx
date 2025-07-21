@@ -3,8 +3,11 @@ import Card from "./components/card";
 import Frontend from "./components/frontend";
 import Backend from "./components/backend";
 import Mobile from "./components/mobile";
+import { useTranslations } from "next-intl";
 
 const Services = () => {
+  const t = useTranslations("Services");
+
   return (
     <section
       id="services"
@@ -12,8 +15,8 @@ const Services = () => {
       md:flex-wrap xl:justify-between"
     >
       <Card
-        title="Frontend Development"
-        description="My journey in frontend development began in 2021 during university, where I focused on frameworks like Angular and Vue.js. Since then, I have gained practical experience with React.js and Next.js through my professional work."
+        title={t("frontend")}
+        description={t("frontendDescription")}
         skills={[
           "HTML",
           "CSS",
@@ -30,8 +33,8 @@ const Services = () => {
         <Frontend />
       </Card>
       <Card
-        title="Backend Development"
-        description="My foundational knowledge in backend development was established in 2021 during my university studies, where I primarily focused on frameworks like ASP.NET and Spring Boot. Additionally, I gained hands-on experience with Flask while working on small-scale university projects."
+        title={t("backend")}
+        description={t("backendDescription")}
         skills={[
           "ASP.NET - C#",
           "SprintBoot - Java",
@@ -44,8 +47,8 @@ const Services = () => {
         <Backend />
       </Card>
       <Card
-        title="Mobile Development"
-        description="I began my mobile development journey in 2022 during university, where I focused on mastering the Flutter framework. Additionally, I have gained practical experience with React Native through my professional work."
+        title={t("mobile")}
+        description={t("mobileDescription")}
         skills={["Flutter - Dart", "React Native"]}
       >
         <Mobile />

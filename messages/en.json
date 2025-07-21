@@ -1,0 +1,53 @@
+{
+  "Header": {
+    "home": "Home",
+    "services": "Services",
+    "experience": "Experience",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "greeting": "Hi, I'm",
+    "degree": "Bachelor’s Degree in Software Engineering from",
+    "job": "Currently working as Software Engineer Junior at"
+  },
+  "Services": {
+    "frontend": "Frontend Development",
+    "frontendDescription": "My journey in frontend development began in 2021 during university, where I focused on frameworks like Angular and Vue.js. Since then, I have gained practical experience with React.js and Next.js through my professional work.",
+    "backend": "Backend Development",
+    "backendDescription": "My foundational knowledge in backend development was established in 2021 during my university studies, where I primarily focused on frameworks like ASP.NET and Spring Boot. Additionally, I gained hands-on experience with Flask while working on small-scale university projects.",
+    "mobile": "Mobile Development",
+    "mobileDescription": "I began my mobile development journey in 2022 during university, where I focused on mastering the Flutter framework. Additionally, I have gained practical experience with React Native through my professional work.",
+    "technologies": "Technologies that I have used:"
+  },
+  "Experience": {
+    "internship": "Front end developer pre-professional intern",
+    "internshipDescription": "My pre-professional internship proved invaluable in expanding my frontend development skills through projects involving frameworks like NextJS and ReactJS. At At Impulsa Studio Impulsa Studio, I actively contributed to their web development initiatives, gaining hands-on experience and playing a key role in the success of multiple web pages. (TypeScript, HTML5, CSS3, React, Next.js, responsive design, Microsoft Azure). I also used C#/.NET and SQL when tasked with backend-related responsibilities.",
+    "internshipDate": "October 2023 - September 2024",
+    "impulsaJunior": "Software Engineer Junior",
+    "impulsaJuniorDescription": "After a year of internship, I was promoted to continue my work at Impulsa Studio, carrying out frontend development tasks for the creation and content updates of websites such as No hay sin suerte and TuCambista. Additionally, I contributed to improving the mobile application.",
+    "impulsaJuniorDate": "October 2024 - Currently",
+    "websites": "Websites:",
+    "mobile": "Mobile app:"
+  },
+  "Projects": {
+    "projectsIntro": "Some of the projects I have done:",
+    "startpageDescription": "Tired of messy bookmarks, I created my own Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links.",
+    "todoDescription": "A basic project for any frontend developer to carry out in order to test my knowledge in React, designed without using backend to focus only on frontend development.",
+    "visitWebsite": "Visit website",
+    "visitRepo": "Visit repository"
+  },
+  "Contact": {
+    "contactComment": "Send me a message!",
+    "contactIntro": "Contact me if you need my services and let's create something great!",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "submit": "Submit"
+  },
+  "Footer": {
+    "footerKnowMe": "To know more about me:",
+    "resumeClick": "Click here to see my",
+    "resume": "Résumé"
+  }
+}

@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import { FC, ReactNode, useState } from "react";
 
 interface PreviewProps {
@@ -8,6 +9,7 @@ interface PreviewProps {
 }
 
 const Preview: FC<PreviewProps> = (props) => {
+  const t = useTranslations("Projects");
   const [showAbout, setShowAbout] = useState(false);
 
   return (
@@ -28,11 +30,9 @@ const Preview: FC<PreviewProps> = (props) => {
         <button
           className="mt-5 border-2 border-white bg-main w-fit rounded-lg px-2
           py-1"
-          onClick={() =>
-            window.open(props.url, "_blank")
-          }
+          onClick={() => window.open(props.url, "_blank")}
         >
-          Visit website
+          {t("visitWebsite")}
         </button>
       </div>
 

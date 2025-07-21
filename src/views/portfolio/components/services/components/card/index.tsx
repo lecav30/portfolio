@@ -1,6 +1,7 @@
 "use client";
 import React, { FC, useState, useEffect } from "react";
 import { useTheme } from "next-themes";
+import { useTranslations } from "next-intl";
 
 interface Props {
   title: string;
@@ -13,6 +14,7 @@ const Card: FC<Props> = (props) => {
   const [showTechnologies, setShowTechnologies] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [screenWidth, setScreenWidth] = useState<number>(0);
+  const t = useTranslations("Services");
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
@@ -60,7 +62,7 @@ const Card: FC<Props> = (props) => {
         <div id="about" className="p-4 flex flex-col gap-12  max-w-[704px]">
           <p className="mt-4">{props.description}</p>
           <div>
-            <p className="mb-4 font-semibold">Technologies that I have used:</p>
+            <p className="mb-4 font-semibold">{t("technologies")}</p>
             <ul id="skills" className="flex flex-wrap gap-4 ">
               {props.skills.map((skill, index) => (
                 <li key={index}>{skill}</li>

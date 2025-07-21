@@ -1,7 +1,11 @@
+"use client";
 import Image from "next/image";
 import Avatar from "@assets/svg/my-avatar.svg";
+import { useTranslations } from "next-intl";
 
 const Hero = () => {
+  const t = useTranslations("Hero");
+
   return (
     <section
       id="hero"
@@ -10,10 +14,10 @@ const Hero = () => {
     >
       <div>
         <h1 className="text-4xl text-center sm:text-[2.5rem] lg:text-5xl md:text-start font-bold">
-          {`Hi, I'm Sebastián Lévano`}
+          {t("greeting")} Sebastián Lévano
         </h1>
         <h3 className="italic mt-4 text-center md:text-2xl md:text-start">
-          Software Engeneering Student at{" "}
+          {t("degree")}{" "}
           <a
             href="https://www.upc.edu.pe/"
             target="_blank"
@@ -23,7 +27,7 @@ const Hero = () => {
           </a>
         </h3>
         <p className="mt-2 text-center font-semibold md:mt-8 md:text-2xl md:text-start">
-          Currently working as a frontend developer at{" "}
+          {t("job")}{" "}
           <a
             href="https://impulsastudio.pe/"
             target="_blank"

@@ -1,18 +1,22 @@
+"use client";
 import Preview from "./components/preview";
 import Image from "next/image";
 import Startpage from "@assets/img/startpage.png";
 import Todo from "@assets/img/todo.png";
+import { useTranslations } from "next-intl";
 
 const Projects = () => {
+  const t = useTranslations("Projects");
+
   return (
     <section id="projects">
-      <h2 className="mb-10">Some of the projects I have done:</h2>
+      <h2 className="mb-10">{t("projectsIntro")}</h2>
       <div
         className="flex flex-col justify-center gap-10 md:gap-0 md:justify-between
         w-full md:flex-row"
       >
         <Preview
-          description="Tired of messy bookmarks, I created my own Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links."
+          description={t("startpageDescription")}
           url="https://lecav-startpage.netlify.app/"
         >
           <Image
@@ -22,7 +26,7 @@ const Projects = () => {
           />
         </Preview>
         <Preview
-          description="A basic project for any frontend developer to carry out in order to test my knowledge in React, designed without using backend to focus only on frontend development."
+          description={t("todoDescription")}
           url="https://todoapp-lecav.netlify.app"
         >
           <Image

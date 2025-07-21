@@ -3,8 +3,12 @@ import { Laptop, Menu } from "lucide-react";
 import ThemeChanger from "../themeChanger";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
+import LanguageChanger from "../languageChanger";
+import { useTranslations } from "next-intl";
 
 const Header = () => {
+  const t = useTranslations("Header");
+
   const sections = ["hero", "services", "experience", "projects", "contact"];
   const [activeSection, setActiveSection] = useState(sections[0]);
   const [showMenu, setShowMenu] = useState(false);
@@ -74,7 +78,7 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             >
-              Home
+              {t("home")}
             </a>
           </li>
           <li>
@@ -88,7 +92,7 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             >
-              Services
+              {t("services")}
             </a>
           </li>
           <li>
@@ -102,7 +106,7 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             >
-              Experience
+              {t("experience")}
             </a>
           </li>
           <li>
@@ -116,7 +120,7 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             >
-              Projects
+              {t("projects")}
             </a>
           </li>
           <li>
@@ -130,11 +134,14 @@ const Header = () => {
                 setShowMenu(!showMenu);
               }}
             >
-              Contact
+              {t("contact")}
             </a>
           </li>
           <li>
             <ThemeChanger />
+          </li>
+          <li>
+            <LanguageChanger />
           </li>
         </ul>
       </nav>

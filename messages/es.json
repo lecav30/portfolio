@@ -1,0 +1,53 @@
+{
+  "Header": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "contact": "Contacto"
+  },
+  "Hero": {
+    "greeting": "Hola, soy",
+    "degree": "Bachiller en Ingeniería de Software de",
+    "job": "Actualmente trabajando como Ingeniero de Software Junior en"
+  },
+  "Services": {
+    "frontend": "Desarrollo Frontend",
+    "frontendDescription": "Mi viaje en el desarrollo de frontend comenzó en 2021 durante la universidad, donde enfocé mis enfoques en frameworks como Angular y Vue.js. Desde entonces, he ganado experiencia práctica con React.js y Next.js a través de mi trabajo profesional.",
+    "backend": "Desarrollo Backend",
+    "backendDescription": "Mi conocimiento básico en el desarrollo de backend se estableció en 2021 durante mis estudios universitarios, donde me enfocé principalmente en frameworks como ASP.NET y Spring Boot. Además, he ganado experiencia práctica con Flask mientras trabajaba en proyectos universitarios pequeños.",
+    "mobile": "Desarrollo Mobile",
+    "mobileDescription": "Empecé mi viaje en el desarrollo de mobile en 2022 durante la universidad, donde me enfocé en el framework Flutter. Además, he ganado experiencia práctica con React Native a través de mi trabajo profesional.",
+    "technologies": "Tecnologías que he usado:"
+  },
+  "Experience": {
+    "internship": "Practicante de desarrollo Frontend pre-profesional",
+    "internshipDescription": "Mi práctica pre-profesional me proveyó valioso en expandir mis habilidades de desarrollo frontend a través de proyectos que involucraban frameworks como NextJS y ReactJS. En Impulsa Studio, trabajé activamente en la creación y actualización de contenido de sus páginas web, ganando experiencia práctica y jugando un papel clave en el éxito de múltiples páginas web. (TypeScript, HTML5, CSS3, React, Next.js, diseño responsivo, Microsoft Azure). También utilizé C#/.NET y SQL cuando se me ocupasen de responsabilidades relacionadas con el backend.",
+    "internshipDate": "Octubre 2023 - Setiembre 2024",
+    "impulsaJunior": "Ingeniero de Software Junior",
+    "impulsaJuniorDescription": "Después de un año de práctica, me promocionó para seguir trabajando en Impulsa Studio, realizando tareas de desarrollo frontend para la creación y actualización de contenido de sitios web como No hay sin suerte y TuCambista. Además, participé en la mejora de la aplicación móvil.",
+    "impulsaJuniorDate": "Octubre 2024 - Actualmente",
+    "websites": "Páginas web:",
+    "mobile": "Aplicación móvil:"
+  },
+  "Projects": {
+    "projectsIntro": "Algunos de los proyectos que he realizado:",
+    "startpageDescription": "Cansado de marcadores desordenados, creé mi propia página de inicio, mi propia página personalizada para el navegador, que simplifica el acceso a las páginas web con una página personalizada que incluye mis enlaces esenciales.",
+    "todoDescription": "Un proyecto básico para cualquier desarrollador de frontend para realizar para probar mi conocimiento en React, diseñado sin usar backend para enfocarse solo en el desarrollo frontend.",
+    "visitWebsite": "Visitar página web",
+    "visitRepo": "Visitar repositorio"
+  },
+  "Contact": {
+    "contactComment": "Envíame un mensaje!",
+    "contactIntro": "Contáctame si necesita mis servicios y vamos a crear algo increíble!",
+    "name": "Nombre",
+    "email": "Correo electrónico",
+    "message": "Mensaje",
+    "submit": "Enviar"
+  },
+  "Footer": {
+    "footerKnowMe": "Para saber más sobre mí:",
+    "resumeClick": "Haz clic aquí para ver mi",
+    "resume": "Currículum"
+  }
+}

@@ -1,3 +1,4 @@
+import { LanguageProvider } from "@/components/languageProvider";
 import "./globals.css";
 import { ThemeProvider } from "@components/themeProvider";
 import { Source_Code_Pro } from "next/font/google";
@@ -20,14 +21,16 @@ export default function RootLayout({
       >
         <head />
         <body className="dark:bg-dark">
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-          </ThemeProvider>
+          <LanguageProvider>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              {children}
+            </ThemeProvider>
+          </LanguageProvider>
         </body>
       </html>
     </>

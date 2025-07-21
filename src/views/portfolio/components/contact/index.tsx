@@ -1,8 +1,11 @@
 "use client";
 import { ChangeEvent, FormEvent, useState } from "react";
 import Styles from "./styles.module.css";
+import { useTranslations } from "next-intl";
 
 const Contact = () => {
+  const t = useTranslations("Contact");
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -10,7 +13,7 @@ const Contact = () => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -52,10 +55,10 @@ const Contact = () => {
       <article className="flex flex-col gap-12 lg:gap-0 lg:flex-row">
         <aside className="flex flex-col gap-12 justify-center items-center lg:items-start w-full lg:w-6/12">
           <h1 className="text-2xl md:text-4xl text-[--main-color] font-bold text-center lg:text-start">
-            Send me a message!
+            {t("contactComment")}
           </h1>
           <h2 className="md:text-xl w-5/6 text-center lg:text-start">
-            {`Contact me if you need my services and let's create something great!`}
+            {t("contactIntro")}
           </h2>
         </aside>
         <form
@@ -64,7 +67,7 @@ const Contact = () => {
         >
           <div className="flex flex-col gap-y-8 md:flex-row md:justify-between w-full">
             <div className={Styles.input__div}>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">{t("name")}</label>
               <input
                 className={Styles.input__style}
                 type="text"
@@ -76,7 +79,7 @@ const Contact = () => {
               />
             </div>
             <div className={Styles.input__div}>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{t("email")}</label>
               <input
                 className={Styles.input__style}
                 type="email"
@@ -89,7 +92,7 @@ const Contact = () => {
             </div>
           </div>
           <div className="flex flex-col w-full">
-            <label htmlFor="message">Message</label>
+            <label htmlFor="message">{t("message")}</label>
             <textarea
               className={`${Styles.input__style} resize-y`}
               id="message"
@@ -102,7 +105,7 @@ const Contact = () => {
           <input
             className="w-4/6 md:w-3/6 bg-main text-white font-bold rounded-lg h-10"
             type="submit"
-            value="Submit"
+            value={t("submit")}
           />
         </form>
       </article>
