@@ -19,7 +19,12 @@ export default function RootLayout({
         suppressHydrationWarning
         className={`${sourceCodePro.className} scroll-smooth`}
       >
-        <head />
+        <head>
+          <meta
+            name="google-site-verification"
+            content="tnTqQIfTuXY-x5jm4GDFbl2Bv2Lktl-A0qwPO30Fru0"
+          />
+        </head>
         <body className="dark:bg-dark">
           <LanguageProvider>
             <ThemeProvider
