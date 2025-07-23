@@ -18,7 +18,8 @@
     "backendDescription": "Mi conocimiento básico en el desarrollo de backend se estableció en 2021 durante mis estudios universitarios, donde me enfocé principalmente en frameworks como ASP.NET y Spring Boot. Además, he ganado experiencia práctica con Flask mientras trabajaba en proyectos universitarios pequeños.",
     "mobile": "Desarrollo Mobile",
     "mobileDescription": "Empecé mi viaje en el desarrollo de mobile en 2022 durante la universidad, donde me enfocé en el framework Flutter. Además, he ganado experiencia práctica con React Native a través de mi trabajo profesional.",
-    "technologies": "Tecnologías que he usado:"
+    "technologies": "Tecnologías que he usado:",
+    "showTech": "Ver tecnologías"
   },
   "Experience": {
     "internship": "Practicante de desarrollo Frontend pre-profesional",
@@ -33,7 +34,11 @@
   "Projects": {
     "projectsIntro": "Algunos de los proyectos que he realizado:",
     "startpageDescription": "Cansado de marcadores desordenados, creé mi propia página de inicio, mi propia página personalizada para el navegador, que simplifica el acceso a las páginas web con una página personalizada que incluye mis enlaces esenciales.",
-    "todoDescription": "Un proyecto básico para cualquier desarrollador de frontend para realizar para probar mi conocimiento en React, diseñado sin usar backend para enfocarse solo en el desarrollo frontend.",
+    "todoDescription": "Un proyecto básico para cualquier desarrollador de frontend para realizar para probar mi conocimiento en React, diseñado sin usar backend para enfocarse solo en el desarrollo frontend (aún en desarrollo).",
+    "fastporteDescription": "Aplicación web desarrollada como proyecto univeristario, con un enfoque similar a las aplicaciones de contratación de taxi como InDrive y Uber.",
+    "rwfLandingDescription": "Landing page básica para mi proyecto de Tesis, RapidWebForge, enfocada al proceso de validación, como punto de contacto con los desarrolladores y descarga de la aplicación de escritorio.",
+    "rwfDocsDescription": "Documentación para mi proyecto de Tesis, RapidWebForge, mostrando el proceso de instalación y uso básico de la aplicación.",
+    "rwfDescription": "Aplicación de escritorio para mi proyecto de Tesis, es una aplicación low-code con enfoque RAD para la generación de aplicaciones web y aprendizaje de programación web.",
     "visitWebsite": "Visitar página web",
     "visitRepo": "Visitar repositorio"
   },

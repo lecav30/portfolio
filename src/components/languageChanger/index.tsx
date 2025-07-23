@@ -9,7 +9,7 @@ const ThemeChanger = () => {
 
   return (
     <button onClick={() => toggleLanguage()} className="relative">
-      {locale === "en" ? "Español" : "English"}
+      {locale === "en" ? "ES" : "EN"}
     </button>
   );
 };

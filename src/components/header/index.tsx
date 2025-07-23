@@ -138,10 +138,10 @@ const Header = () => {
             </a>
           </li>
           <li>
-            <ThemeChanger />
-          </li>
-          <li>
-            <LanguageChanger />
+            <div className="flex gap-4">
+              <ThemeChanger />
+              <LanguageChanger />
+            </div>
           </li>
         </ul>
       </nav>

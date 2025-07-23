@@ -2,6 +2,7 @@
 import React from "./components/react";
 import NextJS from "./components/nextjs";
 import Azure from "./components/azure";
+import Redux from "./components/redux";
 import TailwindCSS from "./components/tailwindcss";
 import { useTranslations } from "next-intl";
 
@@ -39,6 +40,7 @@ const Experience = () => {
               <NextJS />
               <React />
               <TailwindCSS />
+              <Redux />
               <Azure />
             </div>
           </div>
@@ -48,14 +50,14 @@ const Experience = () => {
               <a
                 href="https://www.jorgitoluna.com/"
                 target="_blank"
-                className="text-main hover:underline"
+                className="hover:underline"
               >
                 No hay sin suerte
               </a>
               <a
                 href="https://tucambista.pe/"
                 target="_blank"
-                className="text-main hover:underline"
+                className="hover:underline"
               >
                 Tucambista
               </a>
@@ -67,7 +69,7 @@ const Experience = () => {
               <a
                 href="https://apps.apple.com/us/app/tucambista/id1617892951"
                 target="_blank"
-                className="text-main hover:underline"
+                className="hover:underline"
               >
                 Tucambista (iOS)
               </a>

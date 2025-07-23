@@ -1,9 +1,11 @@
 "use client";
 import { Mail, Linkedin, Github } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useLanguage } from "../languageProvider";
 
 const Footer = () => {
   const t = useTranslations("Footer");
+  const { locale } = useLanguage();
 
   return (
     <div
@@ -43,7 +45,7 @@ const Footer = () => {
       <div className="flex gap-2 sm:flex-col sm:items-center">
         <p>{t("resumeClick")}</p>
         <a
-          href="/resume/"
+          href={`${locale === "es" ? "/Resume_ES.pdf" : "/Resume_EN.pdf"}`}
           target="_blank"
           className="dark:text-white text-main font-bold hover:underline"
         >

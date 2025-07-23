@@ -12,13 +12,15 @@ const messagesMap = {
 
 type LanguageContextType = {
   locale: string;
-  setLocale: (lang: string) => void;
+  setLocale: React.Dispatch<React.SetStateAction<Locale>>;
 };
+
+type Locale = keyof typeof messagesMap; // "en" | "es"
 
 const LanguageContext = createContext<LanguageContextType | null>(null);
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [locale, setLocale] = useState("en");
+  const [locale, setLocale] = useState<Locale>("en");
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>
