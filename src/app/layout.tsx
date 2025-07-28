@@ -2,10 +2,20 @@ import { LanguageProvider } from "@/components/languageProvider";
 import "./globals.css";
 import { ThemeProvider } from "@components/themeProvider";
 import { Source_Code_Pro } from "next/font/google";
+import type { Metadata } from "next";
 
 const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
 });
+
+export const metadata: Metadata = {
+  title: "Sebastian Levano - Portfolio",
+  description: "Full Stack Developer Portfolio",
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function RootLayout({
   children,
