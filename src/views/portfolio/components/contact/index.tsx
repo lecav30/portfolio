@@ -13,7 +13,7 @@ const Contact = () => {
   });
 
   const handleChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
     setFormData({
@@ -54,12 +54,12 @@ const Contact = () => {
     <section id="contact" className="flex flex-col justify-center">
       <article className="flex flex-col gap-12 lg:gap-0 lg:flex-row">
         <aside className="flex flex-col gap-12 justify-center items-center lg:items-start w-full lg:w-6/12">
-          <h1 className="text-2xl md:text-4xl text-[--main-color] font-bold text-center lg:text-start">
+          <p className="text-2xl md:text-4xl text-[--main-color] font-bold text-center lg:text-start">
             {t("contactComment")}
-          </h1>
-          <h2 className="md:text-xl w-5/6 text-center lg:text-start">
+          </p>
+          <p className="md:text-xl w-5/6 text-center lg:text-start">
             {t("contactIntro")}
-          </h2>
+          </p>
         </aside>
         <form
           className="flex flex-col gap-6 items-center w-full md:gap-12 lg:w-6/12"

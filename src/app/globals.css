@@ -18,3 +18,11 @@
   --background: black;
   --foreground: white;
 }
+
+.scroll-hidden {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE */
+}
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

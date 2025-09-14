@@ -12,7 +12,7 @@ const SITE_URL = "https://portfolio-sebastianlevano.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: "Sebastian Lévano – Desarrollador Web y Móvil",
+  title: "Sebastian Lévano - Desarrollador Web y Móvil",
   description:
     "Portafolio de Sebastian Lévano, desarrollador web y móvil especializado en React, Next.js y aplicaciones modernas.",
   robots: { index: true, follow: true },
@@ -23,11 +23,14 @@ export const metadata: Metadata = {
     url: SITE_URL,
     siteName: "Portafolio de Sebastian Lévano",
     locale: "es_PE",
-    title: "Sebastian Lévano – Desarrollador Web y Móvil",
+    title: "Sebastian Lévano - Desarrollador Web y Móvil",
     description:
       "Portafolio de Sebastian Lévano, desarrollador web y móvil especializado en React, Next.js y aplicaciones modernas.",
   },
   icons: { icon: "/favicon.ico" },
+};
+
+export const viewport = {
   themeColor: "#0f172a",
 };
 

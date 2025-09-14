@@ -3,9 +3,9 @@ import { useTranslations } from "next-intl";
 import { FC, ReactNode, useState } from "react";
 
 interface PreviewProps {
-  description: string;
   children?: ReactNode;
-  url?: string;
+  name?: string;
+  onClick?: () => void;
 }
 
 const Preview: FC<PreviewProps> = (props) => {
@@ -13,30 +13,34 @@ const Preview: FC<PreviewProps> = (props) => {
   const [showAbout, setShowAbout] = useState(false);
 
   return (
-    <div
-      onMouseEnter={() => setShowAbout(true)}
-      onMouseLeave={() => setShowAbout(false)}
-      onClick={() => setShowAbout(!showAbout)}
-      className="max-w-[420px] max-h-[320px] rounded-xl shadow-lg relative"
-    >
+    <div>
+      <p className="text-center text-sm md:text-base mb-bottom mb-5">
+        {props.name}
+      </p>
       <div
-        className={`${
-          showAbout ? "opacity-100" : "opacity-0"
-        } bg-main text-white text-[14px] md:text-base
-        absolute w-full h-full rounded-xl p-4 transition-opacity duration-300
-        ease-in-out flex flex-col justify-center items-center`}
+        onMouseEnter={() => setShowAbout(true)}
+        onMouseLeave={() => setShowAbout(false)}
+        onClick={() => setShowAbout(!showAbout)}
+        className="relative"
       >
-        <p className="text-center">{props.description}</p>
-        <button
-          className="mt-5 border-2 border-white bg-main w-fit rounded-lg px-2
-          py-1"
-          onClick={() => window.open(props.url, "_blank")}
+        <div
+          className={`${showAbout ? "opacity-100" : "opacity-0"} bg-main
+          absolute w-full h-full rounded-xl p-4 transition-opacity duration-300
+          ease-in-out flex flex-col justify-center items-center z-20`}
         >
-          {t("visitWebsite")}
-        </button>
-      </div>
+          <button
+            className="bg-main rounded-lg px-2 py-1 text-white text-sm md:text-base
+            w-full h-full"
+            onClick={props.onClick}
+          >
+            {t("viewMore")}
+          </button>
+        </div>
 
-      {props.children}
+        <div className="w-[340px] md:w-[360px] h-[200px] md:h-[220px] rounded-xl shadow-lg relative">
+          {props.children}
+        </div>
+      </div>
     </div>
   );
 };

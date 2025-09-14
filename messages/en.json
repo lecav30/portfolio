@@ -8,8 +8,9 @@
   },
   "Hero": {
     "greeting": "Hi, I'm",
-    "degree": "Bachelor’s Degree in Software Engineering from",
-    "job": "Currently working as Software Engineer Junior at"
+    "degree": "Bachelor's Degree in Software Engineering from",
+    "job": "Currently working as Software Engineer Junior at",
+    "letsTalk": "Let's talk!"
   },
   "Services": {
     "frontend": "Frontend Development",
@@ -18,7 +19,7 @@
     "backendDescription": "My foundational knowledge in backend development was established in 2021 during my university studies, where I primarily focused on frameworks like ASP.NET and Spring Boot. Additionally, I gained hands-on experience with Flask while working on small-scale university projects.",
     "mobile": "Mobile Development",
     "mobileDescription": "I began my mobile development journey in 2022 during university, where I focused on mastering the Flutter framework. Additionally, I have gained practical experience with React Native through my professional work.",
-    "technologies": "Technologies that I have used:",
+    "technologies": "Technologies I use:",
     "showTech": "Show technologies"
   },
   "Experience": {
@@ -36,9 +37,16 @@
     "startpageDescription": "Tired of messy bookmarks, I created my own Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links.",
     "todoDescription": "A basic project for any frontend developer to carry out in order to test my knowledge in React, designed without using backend to focus only on frontend development (still in progress).",
     "fastporteDescription": "Web application developed as a university project, inspired by ride-hailing platforms like InDrive and Uber.",
-    "rwfLandingDescription": "Basic landing page for my thesis project, RapidWebForge, focused on validation and serving as a contact point for developers and a download hub for the desktop app.",
+    "rwfLandingDescription": "Basic landing page created for my thesis project, RapidWebForge, focused on the validation process and serving as a contact point for web programming students. It also includes links for downloading the desktop application.",
     "rwfDocsDescription": "Documentation for my thesis project, RapidWebForge, showing installation steps and basic usage of the application.",
-    "rwfDescription": "Desktop application for my thesis project—RapidWebForge is a low-code RAD tool designed for generating web applications and supporting web programming education.",
+    "rwfDescription": "Desktop application developed for my thesis project, a low-code tool with a RAD approach for web application generation and web programming learning. The application includes features such as code generation using Babel, connection to local MySQL databases, and local deployment through Nginx.",
+    "nhssDescription": "Web application developed for the Peruvian comedian Jorge Luna, designed to manage raffles and promotions with a user base of over 100,000. I contributed to the initial version as an intern, implementing user interface components and core functionalities. Later, as a Junior Software Engineer, I participated in the project's restructuring, developing new features for content management and visualization, as well as introducing design updates and usability improvements.",
+    "nhssContributions": "Building reports using SQL.Implementing cookie handling and authentication with refresh tokens.Developing scalable UI components and functionalities to support a large user base",
+    "montaltoDescription": "Website developed for the Peruvian law firm Montalto Asociados, focused on showcasing their legal services and facilitating contact with potential clients. This was an independent project where I was asked to implement new sections and add functionalities to optimize the user experience.",
+    "montaltoContributions": "Restructured the website by migrating from create-react-app to Vite. Implemented a fully responsive design to ensure an optimal experience on mobile devices. Added a search functionality to simplify navigation. Introduced multi-language support to improve accessibility and usability. Developed a blog section to provide relevant and updated content. Built a platform to manage blog posts independently from the main website content",
+    "contributions": "My key technical contributions included",
+    "techUsed": "Technologies used",
+    "viewMore": "View more",
     "visitWebsite": "Visit website",
     "visitRepo": "Visit repository"
   },

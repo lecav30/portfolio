@@ -37,7 +37,7 @@
         "src/models/*"
       ],
       "@utils/*": [
-        "src/utils/*"
+        "src/hooks/*"
       ],
       "@core/*": [
         "src/core/*"

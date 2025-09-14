@@ -1,81 +1,129 @@
 "use client";
-import Preview from "./components/preview";
+import NotFound from "@assets/img/notfound.webp";
+import useProjects from "@hooks/useProjects";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
-import Startpage from "@assets/img/startpage.webp";
-import Todo from "@assets/img/todo.webp";
-import Fastporte from "@assets/img/fastporte.webp";
-import RwfLanding from "@assets/img/rwflanding.webp";
-import RwfDocs from "@assets/img/rwfdocs.webp";
-import Rwf from "@assets/img/rapidwebforge.webp";
-import { useTranslations } from "next-intl";
+import Preview from "./components/preview";
+import ProjectsModal from "./components/projectsModal";
 
 const Projects = () => {
-  const t = useTranslations("Projects");
-
-  const projects = [
-    {
-      name: "Startpage",
-      description: t("startpageDescription"),
-      url: "https://lecav-startpage.netlify.app/",
-      image: Startpage,
-      alt: "My own Startpage",
-    },
-    {
-      name: "Todo",
-      description: t("todoDescription"),
-      url: "https://todoapp-lecav.netlify.app",
-      image: Todo,
-      alt: "My Todo App",
-    },
-    {
-      name: "Fastporte",
-      description: t("fastporteDescription"),
-      url: "https://fastporte.netlify.app/login",
-      image: Fastporte,
-    },
-    {
-      name: "RWF Landing",
-      description: t("rwfLandingDescription"),
-      url: "https://rapidwebforge.netlify.app",
-      image: RwfLanding,
-      alt: "RapidWebForge Landing Page",
-    },
-    {
-      name: "RWF Docs",
-      description: t("rwfDocsDescription"),
-      url: "https://rapidwebforge-docs.netlify.app",
-      image: RwfDocs,
-      alt: "RapidWebForge Documentation",
-    },
-    {
-      name: "RapidWebForge",
-      description: t("rwfDescription"),
-      url: "https://github.com/RapidWebForge/RapidWebForgeApp",
-      image: Rwf,
-    },
-  ];
+  const {
+    projects,
+    t,
+    index,
+    setIndex,
+    pageSize,
+    resolvedTheme,
+    showedProjects,
+    modals,
+    setModals,
+  } = useProjects();
 
   return (
     <section id="projects">
       <h2 className="mb-10">{t("projectsIntro")}</h2>
-      <div
-        className="flex flex-col flex-wrap justify-center items-center
-        w-full md:flex-row gap-10 gap-y-5"
-      >
-        {projects.map((project) => (
-          <Preview
-            key={project.name}
-            description={project.description}
-            url={project.url}
+      <div className="w-full flex flex-col md:flex-row md:justify-between items-center gap-10 md:gap-0">
+        <button
+          className="hidden md:block"
+          onClick={() => setIndex(index - pageSize)}
+          disabled={index === 0}
+        >
+          {resolvedTheme === "dark" ? (
+            <ChevronLeft color={index === 0 ? "#808080" : "white"} />
+          ) : (
+            <ChevronLeft color={index === 0 ? "#808080" : "#000"} />
+          )}
+        </button>
+        <div className="flex flex-col flex-wrap justify-center items-center w-full md:flex-row gap-10">
+          {showedProjects.map((project) => (
+            <Preview
+              key={project.name}
+              name={project.name}
+              onClick={() => {
+                setModals({
+                  open: true,
+                  page: {
+                    name: project.name,
+                    description: project.description,
+                    url: project.url,
+                    urlText: project.urlText,
+                    image: project.image ?? NotFound,
+                    contributions: project.contributions,
+                    techUsed: project.techUsed,
+                  },
+                });
+              }}
+            >
+              <Image
+                src={project.image}
+                alt={project.name}
+                fill
+                className="w-full h-full rounded-xl"
+              />
+            </Preview>
+          ))}
+        </div>
+        <div className="flex gap-10">
+          <button
+            className="md:hidden"
+            onClick={() => setIndex(index - pageSize)}
+            disabled={index === 0}
           >
-            <Image
-              src={project.image}
-              alt={project?.alt ?? project.name}
-              className="w-full h-full rounded-xl"
-            />
-          </Preview>
-        ))}
+            {resolvedTheme === "dark" ? (
+              <ChevronLeft color={index === 0 ? "#808080" : "white"} />
+            ) : (
+              <ChevronLeft color={index === 0 ? "#808080" : "#000"} />
+            )}
+          </button>
+          <button
+            onClick={() => setIndex(index + pageSize)}
+            disabled={index === projects.length - pageSize}
+          >
+            {resolvedTheme === "dark" ? (
+              <ChevronRight
+                color={
+                  index === projects.length - pageSize ? "#808080" : "white"
+                }
+              />
+            ) : (
+              <ChevronRight
+                color={
+                  index === projects.length - pageSize ? "#808080" : "#000"
+                }
+              />
+            )}
+          </button>
+        </div>
       </div>
+      <ProjectsModal
+        open={modals.open}
+        onClose={() =>
+          setModals({
+            open: false,
+            page: {
+              name: "",
+              description: "",
+              url: "",
+              image: NotFound,
+              contributions: "",
+              techUsed: "",
+              urlText: "",
+            },
+          })
+        }
+        name={modals.page.name}
+        image={modals.page.image}
+        imageAlt={modals.page.name}
+        description={modals.page.description}
+        contributions={
+          modals.page.contributions !== ""
+            ? modals.page.contributions
+            : undefined
+        }
+        url={modals.page.url}
+        urlText={modals.page.urlText}
+        techUsed={modals.page.techUsed}
+      />
     </section>
   );
 };

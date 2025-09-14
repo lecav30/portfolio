@@ -36,11 +36,12 @@ const Services = () => {
         title={t("backend")}
         description={t("backendDescription")}
         skills={[
-          "ASP.NET - C#",
           "SprintBoot - Java",
           "Flask - Python",
+          "Express.js - TypeScript",
           "MySQL",
           "PostgreSQL",
+          "SQLServer",
           "MongoDB",
         ]}
       >
@@ -49,7 +50,7 @@ const Services = () => {
       <Card
         title={t("mobile")}
         description={t("mobileDescription")}
-        skills={["Flutter - Dart", "React Native"]}
+        skills={["React Native"]}
       >
         <Mobile />
       </Card>

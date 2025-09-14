@@ -9,7 +9,8 @@
   "Hero": {
     "greeting": "Hola, soy",
     "degree": "Bachiller en Ingeniería de Software de",
-    "job": "Actualmente trabajando como Ingeniero de Software Junior en"
+    "job": "Actualmente trabajando como Ingeniero de Software Junior en",
+    "letsTalk": "Hablemos!"
   },
   "Services": {
     "frontend": "Desarrollo Frontend",
@@ -18,7 +19,7 @@
     "backendDescription": "Mi conocimiento básico en el desarrollo de backend se estableció en 2021 durante mis estudios universitarios, donde me enfocé principalmente en frameworks como ASP.NET y Spring Boot. Además, he ganado experiencia práctica con Flask mientras trabajaba en proyectos universitarios pequeños.",
     "mobile": "Desarrollo Mobile",
     "mobileDescription": "Empecé mi viaje en el desarrollo de mobile en 2022 durante la universidad, donde me enfocé en el framework Flutter. Además, he ganado experiencia práctica con React Native a través de mi trabajo profesional.",
-    "technologies": "Tecnologías que he usado:",
+    "technologies": "Tecnologías que manejo:",
     "showTech": "Ver tecnologías"
   },
   "Experience": {
@@ -36,9 +37,17 @@
     "startpageDescription": "Cansado de marcadores desordenados, creé mi propia página de inicio, mi propia página personalizada para el navegador, que simplifica el acceso a las páginas web con una página personalizada que incluye mis enlaces esenciales.",
     "todoDescription": "Un proyecto básico para cualquier desarrollador de frontend para realizar para probar mi conocimiento en React, diseñado sin usar backend para enfocarse solo en el desarrollo frontend (aún en desarrollo).",
     "fastporteDescription": "Aplicación web desarrollada como proyecto univeristario, con un enfoque similar a las aplicaciones de contratación de taxi como InDrive y Uber.",
-    "rwfLandingDescription": "Landing page básica para mi proyecto de Tesis, RapidWebForge, enfocada al proceso de validación, como punto de contacto con los desarrolladores y descarga de la aplicación de escritorio.",
+    "rwfLandingDescription": "Landing page desarrollada para mi proyecto de tesis, RapidWebForge, enfocada en el proceso de validación y en servir como punto de contacto con estudiantes de programación web. Además, incluye enlaces para la descarga de la aplicación de escritorio.",
     "rwfDocsDescription": "Documentación para mi proyecto de Tesis, RapidWebForge, mostrando el proceso de instalación y uso básico de la aplicación.",
-    "rwfDescription": "Aplicación de escritorio para mi proyecto de Tesis, es una aplicación low-code con enfoque RAD para la generación de aplicaciones web y aprendizaje de programación web.",
+    "rwfDescription": "Aplicación de escritorio desarrollada para mi proyecto de tesis, una herramienta low-code con enfoque RAD para la generación de aplicaciones web y el aprendizaje de programación web. La aplicación integra características como generación de código mediante Babel, conexión con bases de datos locales MySQL y despliegue en entornos locales utilizando Nginx.",
+    "rwfContributions": "",
+    "nhssDescription": "Aplicación web desarrollada para el comediante peruano Jorge Luna, enfocada en la gestión de sorteos y promociones con una base de más de 100,000 usuarios. Participé en el desarrollo de la versión inicial como practicante, implementando componentes de interfaz de usuario y funcionalidades clave. Posteriormente, como Ingeniero de Software Junior, contribuí en la reestructuración del proyecto, desarrollando nuevas funcionalidades para la gestión y visualización de contenido, además de mejoras en diseño y usabilidad.",
+    "nhssContributions": "Elaboración de reportes empleando SQL.Implementación y manejo de cookies y autenticación con refresh tokens.Desarrollo de componentes de UI y funcionalidades escalables para una alta base de usuarios",
+    "montaltoDescription": "Página web desarrollada para la firma peruana Montalto Asociados, enfocada en mostrar sus servicios legales y facilitar el contacto con clientes potenciales. Fue un proyecto independiente en el que se me solicitó implementar nuevas secciones y añadir funcionalidades para optimizar la experiencia del usuario.",
+    "montaltoContributions": "Reestructuración del sitio web migrando de create-react-app a Vite. Implementación de un diseño totalmente responsivo para asegurar una experiencia óptima en dispositivos móviles. Incorporación de una funcionalidad de búsqueda para facilitar la navegación. Adición de soporte multilenguaje para mejorar la accesibilidad y la usabilidad. Desarrollo de una sección de blogs para ofrecer contenido relevante y actualizado. Creación de una plataforma para gestionar los blogs de forma independiente al contenido principal del sitio",
+    "contributions": "Dentro de mis aportes técnicos destacan",
+    "techUsed": "Tecnologías usadas",
+    "viewMore": "Ver más",
     "visitWebsite": "Visitar página web",
     "visitRepo": "Visitar repositorio"
   },

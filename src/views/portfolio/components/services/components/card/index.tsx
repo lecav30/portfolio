@@ -47,19 +47,20 @@ const Card: FC<Props> = (props) => {
   if (isDesktop) {
     return (
       <div
-        className={`${resolvedTheme === "dark" && "shadow-white/20"} shadow-lg rounded-xl
-          hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px]
-          relative border__show flex gap-12 py-5 px-10`}
+        className={`shadow-lg rounded-xl hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px]
+        relative border__show flex gap-12 py-5 px-10 ${
+          resolvedTheme === "dark" && "shadow-white/20"
+        } `}
       >
         <div
           id="presentation"
           className="flex flex-col justify-center items-center gap-5"
           onClick={handleShowAbout}
         >
-          <h1 className="text-2xl text-center font-bold">{props.title}</h1>
+          <p className="text-2xl text-center font-bold">{props.title}</p>
           {props.children}
         </div>
-        <div id="about" className="p-4 flex flex-col gap-12  max-w-[704px]">
+        <div id="about" className="p-4 flex flex-col gap-12 max-w-[704px]">
           <p className="mt-4">{props.description}</p>
           <div>
             <p className="mb-4 font-semibold">{t("technologies")}</p>
@@ -76,7 +77,9 @@ const Card: FC<Props> = (props) => {
 
   return (
     <div
-      className={`${resolvedTheme === "dark" && "shadow-white/20"} shadow-lg p-4 rounded-xl
+      className={`${
+        resolvedTheme === "dark" && "shadow-white/20"
+      } shadow-lg p-4 rounded-xl
         hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px] min-w-[240px]
         max-w-[310px] relative border__show`}
     >
@@ -87,7 +90,7 @@ const Card: FC<Props> = (props) => {
           onClick={handleShowAbout}
         >
           {props.children}
-          <h1 className="text-2xl text-center">{props.title}</h1>
+          <p className="text-2xl text-center">{props.title}</p>
         </div>
       )}
       {showAbout && (
@@ -108,7 +111,6 @@ const Card: FC<Props> = (props) => {
               strokeLinejoin="round"
             >
               <polyline
-                className="dark__svg"
                 fill={resolvedTheme == "dark" ? "#fff" : "#000"}
                 points="9 14 4 9 9 4"
               ></polyline>
@@ -116,7 +118,7 @@ const Card: FC<Props> = (props) => {
             </svg>
           </button>
           <br />
-          <h1 className="text-2xl">{props.title}</h1>
+          <p className="text-2xl mt-5">{props.title}</p>
           <p className="mt-4">{props.description}</p>
           <button
             className="my-4 bg-[#6600FF] py-1 px-3 border border-black

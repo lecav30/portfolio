@@ -28,6 +28,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
         key={locale}
         locale={locale}
         messages={messagesMap[locale]}
+        timeZone="America/Lima"
       >
         {children}
       </NextIntlClientProvider>
