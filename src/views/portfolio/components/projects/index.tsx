@@ -59,6 +59,8 @@ const Projects = () => {
                 alt={project.name}
                 fill
                 className="w-full h-full rounded-xl"
+                placeholder="blur"
+                blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlMmUyZTIiIC8+PC9zdmc+"
               />
             </Preview>
           ))}
