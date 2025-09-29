@@ -35,7 +35,7 @@
   "Projects": {
     "projectsIntro": "Some of the projects I have done:",
     "startpageDescription": "Tired of messy bookmarks, I created my own Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links.",
-    "todoDescription": "A basic project for any frontend developer to carry out in order to test my knowledge in React, designed without using backend to focus only on frontend development (still in progress).",
+    "todoDescription": "A fully functional Todo App, developed to test and strengthen my skills in both frontend and backend development. On the frontend, I built the application with React, focusing on component modularization, protected route management, and session handling through cookies. On the backend, I designed a basic MVC architecture using Express.js, implementing authentication with JWT and database migrations to simulate a professional production-like environment. This project showcases a functional and scalable application that applies modern web development best practices.",
     "fastporteDescription": "Web application developed as a university project, inspired by ride-hailing platforms like InDrive and Uber.",
     "rwfLandingDescription": "Basic landing page created for my thesis project, RapidWebForge, focused on the validation process and serving as a contact point for web programming students. It also includes links for downloading the desktop application.",
     "rwfDocsDescription": "Documentation for my thesis project, RapidWebForge, showing installation steps and basic usage of the application.",

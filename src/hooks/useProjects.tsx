@@ -85,7 +85,7 @@ const useProjects = () => {
       image: Todo,
       contributions: "",
       techUsed:
-        "React, TypeScript, Redux Toolkit, TailwindCSS, Netlify, Vite, Github Actions",
+        "React, TypeScript, Redux Toolkit, TailwindCSS, Netlify, Vite, Github Actions, TypeScript, Express.js, Sequelize, Render (Web Services), Neon (PostgreSQL Database)",
     },
     {
       name: "Fastporte",
@@ -115,7 +115,7 @@ const useProjects = () => {
   const [pageSize, setPageSize] = useState(4);
   const [index, setIndex] = useState(0);
   const [showedProjects, setShowedProjects] = useState(
-    projects.slice(0, pageSize)
+    projects.slice(0, pageSize),
   );
 
   useEffect(() => {
