@@ -28,13 +28,13 @@ const Hero = () => {
           </a>
         </h3>
         <p className="mt-2 text-center font-semibold md:mt-6 md:text-2xl md:text-start">
-          {t("job")}{" "}
+          {t("job")} <br className="hidden lg:block" />
           <a
-            href="https://impulsastudio.pe/"
+            href="https://pe.nttdata.com/"
             target="_blank"
             className="text-main hover:underline"
           >
-            Impulsa Studio
+            NTT DATA
           </a>
         </p>
         <button

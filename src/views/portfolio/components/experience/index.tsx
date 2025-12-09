@@ -16,6 +16,37 @@ const Experience = () => {
       className="flex justify-center lg:justify-start items-center"
     >
       <ol className="relative border-l-2 border-gray-700 h-fit">
+        <li className="ms-4 mb-4">
+          <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />
+          <time className="mb-1 text-sm leading-none">
+            {t("nttDataJuniorDate")}
+          </time>
+          <h3 className="text-lg font-semibold capitalize">Junior Engineer</h3>
+          <p className="mb-4">{t("nttDataJuniorDescription")}</p>
+          <div className="flex items-center">
+            <p className="pr-5 self-start">Stack:</p>
+            <div className="flex items-center gap-x-8 flex-wrap">
+              <div className="group relative">
+                <React />
+                <span
+                  className="absolute bottom-full mb-2 hidden group-hover:block
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded"
+                >
+                  React
+                </span>
+              </div>
+              <div className="group relative">
+                <Azure />
+                <span
+                  className="absolute bottom-full mb-2 hidden group-hover:block
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                >
+                  Microsoft Azure
+                </span>
+              </div>
+            </div>
+          </div>
+        </li>
         <li className="ms-4">
           <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />
           <time className="mb-1 text-sm leading-none">
@@ -42,7 +73,7 @@ const Experience = () => {
                 <NextJS />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded"
                 >
                   Next.js
                 </span>
@@ -51,7 +82,7 @@ const Experience = () => {
                 <React />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded"
                 >
                   React
                 </span>
@@ -60,7 +91,7 @@ const Experience = () => {
                 <TailwindCSS />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
                 >
                   Tailwind CSS
                 </span>
@@ -69,7 +100,7 @@ const Experience = () => {
                 <Redux />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded"
                 >
                   Redux
                 </span>
@@ -78,7 +109,7 @@ const Experience = () => {
                 <SQLServer />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
                 >
                   SQL Server
                 </span>
@@ -87,7 +118,7 @@ const Experience = () => {
                 <Azure />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
-                bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
                 >
                   Microsoft Azure
                 </span>

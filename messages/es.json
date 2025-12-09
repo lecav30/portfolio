@@ -9,7 +9,7 @@
   "Hero": {
     "greeting": "Hola, soy",
     "degree": "Bachiller en Ingeniería de Software de",
-    "job": "Actualmente trabajando como Ingeniero de Software Junior en",
+    "job": "Actualmente trabajando como Junior Engineer en",
     "letsTalk": "Hablemos!"
   },
   "Services": {
@@ -28,7 +28,9 @@
     "internshipDate": "Octubre 2023 - Setiembre 2024",
     "impulsaJunior": "Ingeniero de Software Junior",
     "impulsaJuniorDescription": "Después de un año de práctica, me promocionó para seguir trabajando en Impulsa Studio, realizando tareas de desarrollo frontend para la creación y actualización de contenido de sitios web como No hay sin suerte y TuCambista. Además, participé en la mejora de la aplicación móvil.",
-    "impulsaJuniorDate": "Octubre 2024 - Actualmente",
+    "impulsaJuniorDate": "Octubre 2024 - Noviembre 2025",
+    "nttDataJuniorDescription": "Me incorporé a NTT Data como Junior Engineer, formando parte del equipo de Digital Experience que brinda soporte al BCP. Participo en tareas de desarrollo móvil utilizando React Native, contribuyendo a la creación y mejora de soluciones digitales. Esta experiencia marca un paso importante en mi carrera al integrarme a un entorno corporativo más exigente, donde puedo poner a prueba mis capacidades, fortalecer mis habilidades técnicas y adaptarme a procesos de trabajo de mayor escala.",
+    "nttDataJuniorDate": "Diciembre 2025 - Actualidad",
     "websites": "Páginas web:",
     "mobile": "Aplicación móvil:"
   },

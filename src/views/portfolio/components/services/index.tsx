@@ -50,7 +50,13 @@ const Services = () => {
       <Card
         title={t("mobile")}
         description={t("mobileDescription")}
-        skills={["React Native"]}
+        skills={[
+          "React Native",
+          "Redux",
+          "React Native Navigation",
+          "Native modules",
+          "Deep Linking",
+        ]}
       >
         <Mobile />
       </Card>
