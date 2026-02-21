@@ -28,6 +28,9 @@ const Services = () => {
           "Vue.js",
           "Angular",
           "Astro",
+          "Redux",
+          "Zustand",
+          "TanStack",
         ]}
       >
         <Frontend />
@@ -52,7 +55,6 @@ const Services = () => {
         description={t("mobileDescription")}
         skills={[
           "React Native",
-          "Redux",
           "React Native Navigation",
           "Native modules",
           "Deep Linking",

@@ -6,7 +6,7 @@ const SQLServer = () => {
   return (
     <svg
       className="w-8 h-auto"
-      fill={resolvedTheme == "dark" ? "#fff" : "#000"}
+      fill={resolvedTheme === "dark" ? "#fff" : "#000"}
       width="800px"
       height="800px"
       xmlns="http://www.w3.org/2000/svg"

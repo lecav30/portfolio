@@ -1,9 +1,13 @@
 "use client";
-import React from "./components/react";
-import NextJS from "./components/nextjs";
+import Artifactory from "./components/artifactory";
 import Azure from "./components/azure";
+import GitHub from "./components/github";
+import NextJS from "./components/nextjs";
+import React from "./components/react";
 import Redux from "./components/redux";
 import TailwindCSS from "./components/tailwindcss";
+import TanStack from "./components/tanstack";
+import Zustand from "./components/zustand";
 import { useTranslations } from "next-intl";
 import SQLServer from "./components/sqlserver";
 
@@ -16,6 +20,10 @@ const Experience = () => {
       className="flex justify-center lg:justify-start items-center"
     >
       <ol className="relative border-l-2 border-gray-700 h-fit">
+        <li className="ms-4 mb-4">
+          <div className="absolute w-3 h-1.5 mt-3.5 -start-1.5 border border-gray-900 bg-gray-700" />
+          <p className="font-bold text-2xl">NTT Data</p>
+        </li>
         <li className="ms-4 mb-4">
           <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />
           <time className="mb-1 text-sm leading-none">
@@ -32,20 +40,63 @@ const Experience = () => {
                   className="absolute bottom-full mb-2 hidden group-hover:block
                   bg-gray-800 text-white text-sm px-2 py-1 rounded"
                 >
-                  React
+                  React Native
                 </span>
               </div>
               <div className="group relative">
-                <Azure />
+                <GitHub />
                 <span
                   className="absolute bottom-full mb-2 hidden group-hover:block
                   bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
                 >
-                  Microsoft Azure
+                  GitHub
+                </span>
+              </div>
+              <div className="group relative">
+                <Zustand />
+                <span
+                  className="absolute bottom-full mb-2 hidden group-hover:block
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                >
+                  Zustand
+                </span>
+              </div>
+              <div className="group relative">
+                <TanStack />
+                <span
+                  className="absolute bottom-full mb-2 hidden group-hover:block
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                >
+                  TanStack
+                </span>
+              </div>
+              <div className="group relative">
+                <Artifactory />
+                <span
+                  className="absolute bottom-full mb-2 hidden group-hover:block
+                  bg-gray-800 text-white text-sm px-2 py-1 rounded whitespace-nowrap"
+                >
+                  Artifactory
                 </span>
               </div>
             </div>
           </div>
+          <div className="flex items-center">
+            <p className="pr-5">{t("mobile")}</p>
+            <div className="flex items-center gap-x-8 flex-wrap">
+              <a
+                href="https://www.viabcp.com/canales/banca-movil"
+                target="_blank"
+                className="hover:underline"
+              >
+                Banca Móvil BCP
+              </a>
+            </div>
+          </div>
+        </li>
+        <li className="ms-4 mb-4">
+          <div className="absolute w-3 h-1.5 mt-3.5 -start-1.5 border border-gray-900 bg-gray-700" />
+          <p className="font-bold text-2xl">Impulsa Studio</p>
         </li>
         <li className="ms-4">
           <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />

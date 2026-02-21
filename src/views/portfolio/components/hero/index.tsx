@@ -14,10 +14,10 @@ const Hero = () => {
       md:justify-normal md:flex-row lg:justify-between"
     >
       <div>
-        <h1 className="text-4xl text-center sm:text-[2.5rem] lg:text-5xl md:text-start font-bold">
+        <h1 className="text-4xl text-center sm:text-[2.5rem] lg:text-4xl md:text-start font-bold">
           {t("greeting")} Sebastián Lévano
         </h1>
-        <h3 className="t-4 text-center md:text-2xl md:text-start">
+        <h3 className="mt-4 text-center md:text-xl md:text-start w-[80%] mx-auto lg:w-full">
           {t("degree")}{" "}
           <a
             href="https://www.upc.edu.pe/"
@@ -27,8 +27,8 @@ const Hero = () => {
             UPC
           </a>
         </h3>
-        <p className="mt-2 text-center font-semibold md:mt-6 md:text-2xl md:text-start">
-          {t("job")} <br className="hidden lg:block" />
+        <p className="mt-2 text-center font-semibold md:mt-6 md:text-xl md:text-start w-[80%] mx-auto lg:w-full">
+          {t("job")}{" "}
           <a
             href="https://pe.nttdata.com/"
             target="_blank"
