@@ -1,19 +1,23 @@
 import { useTheme } from "next-themes";
 import { Palette } from "lucide-react";
+import { useEffect } from "react";
 
 const ThemeChanger = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, theme, setTheme } = useTheme();
 
-  const toggleTheme = () => {
-    if (theme === "dark") {
-      setTheme("light");
-    } else {
-      setTheme("dark");
+  useEffect(() => {
+    if (theme) {
+      document.cookie = `theme=${theme}; Path=/; Max-Age=31536000; SameSite=Lax`;
     }
-  };
+  }, [theme]);
 
   return (
-    <button onClick={() => toggleTheme()} className="relative">
+    <button
+      type="button"
+      onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
+      className="relative"
+      aria-label="Toggle color theme"
+    >
       <Palette />
     </button>
   );

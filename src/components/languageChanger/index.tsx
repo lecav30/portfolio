@@ -1,6 +1,6 @@
 import { useLanguage } from "../languageProvider";
 
-const ThemeChanger = () => {
+const LanguageChanger = () => {
   const { locale, setLocale } = useLanguage();
 
   const toggleLanguage = () => {
@@ -8,10 +8,15 @@ const ThemeChanger = () => {
   };
 
   return (
-    <button onClick={() => toggleLanguage()} className="relative">
+    <button
+      type="button"
+      onClick={toggleLanguage}
+      className="relative"
+      aria-label={locale === "en" ? "Cambiar a español" : "Switch to English"}
+    >
       {locale === "en" ? "ES" : "EN"}
     </button>
   );
 };
 
-export default ThemeChanger;
+export default LanguageChanger;

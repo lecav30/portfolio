@@ -36,31 +36,35 @@ const Services = () => {
         <Frontend />
       </Card>
       <Card
-        title={t("backend")}
-        description={t("backendDescription")}
-        skills={[
-          "SprintBoot - Java",
-          "Flask - Python",
-          "Express.js - TypeScript",
-          "MySQL",
-          "PostgreSQL",
-          "SQLServer",
-          "MongoDB",
-        ]}
-      >
-        <Backend />
-      </Card>
-      <Card
         title={t("mobile")}
         description={t("mobileDescription")}
         skills={[
           "React Native",
+          "TypeScript",
+          "Redux",
+          "Zustand",
           "React Native Navigation",
-          "Native modules",
+          "Native Modules",
           "Deep Linking",
         ]}
       >
         <Mobile />
+      </Card>
+      <Card
+        title={t("backend")}
+        description={t("backendDescription")}
+        skills={[
+          "C# / .NET",
+          "Microservices",
+          "BFF",
+          "Express.js / TypeScript",
+          "Spring Boot / Java",
+          "SQL Server",
+          "PostgreSQL",
+          "MySQL",
+        ]}
+      >
+        <Backend />
       </Card>
     </section>
   );

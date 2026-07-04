@@ -2,6 +2,7 @@ import { LanguageProvider } from "@components/languageProvider";
 import "./globals.css";
 import { ThemeProvider } from "@components/themeProvider";
 import { Source_Code_Pro } from "next/font/google";
+import { cookies } from "next/headers";
 import type { Metadata } from "next";
 
 const sourceCodePro = Source_Code_Pro({
@@ -39,10 +40,17 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = cookies();
+  const locale = cookieStore.get("locale")?.value === "en" ? "en" : "es";
+  const savedTheme = cookieStore.get("theme")?.value;
+  const defaultTheme = ["light", "dark", "system"].includes(savedTheme ?? "")
+    ? savedTheme
+    : "system";
+
   return (
     <>
       <html
-        lang="en"
+        lang={locale}
         suppressHydrationWarning
         className={`${sourceCodePro.className} scroll-smooth`}
       >
@@ -53,10 +61,10 @@ export default function RootLayout({
           />
         </head>
         <body className="dark:bg-dark">
-          <LanguageProvider>
+          <LanguageProvider initialLocale={locale}>
             <ThemeProvider
               attribute="class"
-              defaultTheme="system"
+              defaultTheme={defaultTheme}
               enableSystem
               disableTransitionOnChange
             >

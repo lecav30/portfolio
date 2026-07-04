@@ -9,25 +9,25 @@
   "Hero": {
     "greeting": "Hi, I'm",
     "degree": "Bachelor's Degree in Software Engineering from",
-    "job": "Currently working as Junior Engineer at",
+    "job": "Currently working as a Junior Engineer at",
     "letsTalk": "Let's talk!"
   },
   "Services": {
-    "frontend": "Frontend Development",
-    "frontendDescription": "My journey in frontend development began in 2021 during university, where I focused on frameworks like Angular and Vue.js. Since then, I have gained practical experience with React.js and Next.js through my professional work.",
+    "frontend": "Web Development",
+    "frontendDescription": "I build modern, responsive, and scalable web applications with React, Next.js, and TypeScript. I can create accessible interfaces, manage complex application state, integrate APIs and authentication flows, optimize performance and SEO, and maintain or modernize existing codebases.",
     "backend": "Backend Development",
-    "backendDescription": "My foundational knowledge in backend development was established in 2021 during my university studies, where I primarily focused on frameworks like ASP.NET and Spring Boot. Additionally, I gained hands-on experience with Flask while working on small-scale university projects.",
+    "backendDescription": "I build APIs and backend services with C#/.NET using microservices and Backend for Frontend (BFF) architectures. I can design and integrate SQL databases, implement authentication and business logic, connect distributed services, and develop solutions with Express.js and Spring Boot.",
     "mobile": "Mobile Development",
-    "mobileDescription": "I began my mobile development journey in 2022 during university, where I focused on mastering the Flutter framework. Additionally, I have gained practical experience with React Native through my professional work.",
+    "mobileDescription": "I build cross-platform mobile applications with React Native and TypeScript. I can implement navigation and state management, integrate APIs and native modules, configure deep links, resolve production issues, and improve application performance and stability.",
     "technologies": "Technologies I use:",
     "showTech": "Show technologies"
   },
   "Experience": {
-    "internship": "Front end developer pre-professional intern",
-    "internshipDescription": "My pre-professional internship proved invaluable in expanding my frontend development skills through projects involving frameworks like NextJS and ReactJS. At At Impulsa Studio Impulsa Studio, I actively contributed to their web development initiatives, gaining hands-on experience and playing a key role in the success of multiple web pages. (TypeScript, HTML5, CSS3, React, Next.js, responsive design, Microsoft Azure). I also used C#/.NET and SQL when tasked with backend-related responsibilities.",
+    "internship": "Pre-professional Frontend Developer Intern",
+    "internshipDescription": "During my pre-professional internship at Impulsa Studio, I expanded my frontend development skills by contributing to several websites built with React and Next.js. I helped create pages, update content, and improve responsive interfaces using TypeScript, HTML5, CSS3, and Microsoft Azure. I also used C#/.NET and SQL for backend-related tasks.",
     "internshipDate": "October 2023 - September 2024",
-    "impulsaJunior": "Software Engineer Junior",
-    "impulsaJuniorDescription": "After a year of internship, I was promoted to continue my work at Impulsa Studio, carrying out frontend development tasks for the creation and content updates of websites such as No hay sin suerte and TuCambista. Additionally, I contributed to improving the mobile application.",
+    "impulsaJunior": "Junior Software Engineer",
+    "impulsaJuniorDescription": "After a year as an intern, I was promoted to continue my work at Impulsa Studio. I handled frontend development for the creation and content updates of websites such as No Hay Sin Suerte and TuCambista. I also contributed to improving the mobile application.",
     "impulsaJuniorDate": "October 2024 - November 2025",
     "nttDataJuniorDescription": "I joined NTT DATA as a Junior Engineer, contributing to the Digital Experience team that supports BCP’s mobile banking platform. I develop and maintain core features using React Native, ensuring high standards of performance, quality, and security. Additionally, I participate in cross-functional production deployments, collaborating with multiple IT squads to deliver stable and incident-free releases in a large-scale corporate environment.",
     "nttDataJuniorDate": "December 2025 - Present",
@@ -35,17 +35,17 @@
     "mobile": "Mobile app:"
   },
   "Projects": {
-    "projectsIntro": "Some of the projects I have done:",
-    "startpageDescription": "Tired of messy bookmarks, I created my own Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links.",
+    "projectsIntro": "Some projects I have worked on:",
+    "startpageDescription": "Tired of messy bookmarks, I created a custom browser start page that provides quick access to my essential links.",
     "todoDescription": "A fully functional Todo App, developed to test and strengthen my skills in both frontend and backend development. On the frontend, I built the application with React, focusing on component modularization, protected route management, and session handling through cookies. On the backend, I designed a basic MVC architecture using Express.js, implementing authentication with JWT and database migrations to simulate a professional production-like environment. This project showcases a functional and scalable application that applies modern web development best practices.",
-    "fastporteDescription": "Web application developed as a university project, inspired by ride-hailing platforms like InDrive and Uber.",
+    "fastporteDescription": "Web application developed as a university project, inspired by ride-hailing platforms like inDrive and Uber.",
     "rwfLandingDescription": "Basic landing page created for my thesis project, RapidWebForge, focused on the validation process and serving as a contact point for web programming students. It also includes links for downloading the desktop application.",
     "rwfDocsDescription": "Documentation for my thesis project, RapidWebForge, showing installation steps and basic usage of the application.",
     "rwfDescription": "Desktop application developed for my thesis project, a low-code tool with a RAD approach for web application generation and web programming learning. The application includes features such as code generation using Babel, connection to local MySQL databases, and local deployment through Nginx.",
     "nhssDescription": "Web application developed for the Peruvian comedian Jorge Luna, designed to manage raffles and promotions with a user base of over 100,000. I contributed to the initial version as an intern, implementing user interface components and core functionalities. Later, as a Junior Software Engineer, I participated in the project's restructuring, developing new features for content management and visualization, as well as introducing design updates and usability improvements.",
-    "nhssContributions": "Building reports using SQL.Implementing cookie handling and authentication with refresh tokens.Developing scalable UI components and functionalities to support a large user base",
+    "nhssContributions": "Built reports using SQL. Implemented cookie handling and refresh-token authentication. Developed scalable UI components and features for a large user base",
     "montaltoDescription": "Website developed for the Peruvian law firm Montalto Asociados, focused on showcasing their legal services and facilitating contact with potential clients. This was an independent project where I was asked to implement new sections and add functionalities to optimize the user experience.",
-    "montaltoContributions": "Restructured the website by migrating from create-react-app to Vite. Implemented a fully responsive design to ensure an optimal experience on mobile devices. Added a search functionality to simplify navigation. Introduced multi-language support to improve accessibility and usability. Developed a blog section to provide relevant and updated content. Built a platform to manage blog posts independently from the main website content",
+    "montaltoContributions": "Restructured the website by migrating from Create React App to Vite. Implemented a fully responsive design for an optimal experience on mobile devices. Added search functionality to simplify navigation. Introduced multilingual support to improve accessibility and usability. Developed a blog section for relevant and up-to-date content. Built a platform to manage blog posts independently from the main website content",
     "contributions": "My key technical contributions included",
     "techUsed": "Technologies used",
     "viewMore": "View more",
@@ -54,14 +54,14 @@
   },
   "Contact": {
     "contactComment": "Send me a message!",
-    "contactIntro": "Contact me if you need my services and let's create something great!",
+    "contactIntro": "Contact me if you need my services, and let's create something great!",
     "name": "Name",
     "email": "Email",
     "message": "Message",
     "submit": "Submit"
   },
   "Footer": {
-    "footerKnowMe": "To know more about me:",
+    "footerKnowMe": "Learn more about me:",
     "resumeClick": "Click here to see my",
     "resume": "Résumé"
   }
