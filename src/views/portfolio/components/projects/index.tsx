@@ -58,6 +58,7 @@ const Projects = () => {
                 src={project.image}
                 alt={project.name}
                 fill
+                sizes="(max-width: 767px) 340px, 360px"
                 className="w-full h-full rounded-xl"
                 placeholder="blur"
                 blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMSIgaGVpZ2h0PSIxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxyZWN0IHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9IiNlMmUyZTIiIC8+PC9zdmc+"

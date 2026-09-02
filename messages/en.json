@@ -9,7 +9,8 @@
   "Hero": {
     "greeting": "Hi, I'm",
     "degree": "Bachelor's Degree in Software Engineering from",
-    "job": "Currently working as a Junior Engineer at",
+    "master": "Currently pursuing a Master’s in Data Science & Artificial Intelligence at",
+    "job": "Currently working as a Engineer at",
     "letsTalk": "Let's talk!"
   },
   "Services": {
@@ -29,8 +30,10 @@
     "impulsaJunior": "Junior Software Engineer",
     "impulsaJuniorDescription": "After a year as an intern, I was promoted to continue my work at Impulsa Studio. I handled frontend development for the creation and content updates of websites such as No Hay Sin Suerte and TuCambista. I also contributed to improving the mobile application.",
     "impulsaJuniorDate": "October 2024 - November 2025",
-    "nttDataJuniorDescription": "I joined NTT DATA as a Junior Engineer, contributing to the Digital Experience team that supports BCP’s mobile banking platform. I develop and maintain core features using React Native, ensuring high standards of performance, quality, and security. Additionally, I participate in cross-functional production deployments, collaborating with multiple IT squads to deliver stable and incident-free releases in a large-scale corporate environment.",
-    "nttDataJuniorDate": "December 2025 - Present",
+    "nttDataJuniorDescription": "I joined NTT DATA as a Junior Engineer. I participated in the development and improvement of key features using React Native. I also collaborated on production deployments and coordinated with different technical teams to ensure stable, high-quality releases. This experience allowed me to grow in a demanding corporate environment, strengthen my technical skills, and adapt to large-scale workflows.",
+    "nttDataJuniorDate": "December 2025 - August 2026",
+    "nttDataEngineerDescription": "I was promoted to Engineer after demonstrating professional maturity, autonomy, and strong technical capabilities in my previous role. During my involvement in the BCP Mobile Banking project, I contributed to the development of solutions using React Native, took on greater responsibilities within the team, and strengthened my technical judgment in a highly demanding corporate environment. I currently continue contributing to the project, with the goal of becoming a React Native reference within the team.",
+    "nttDataEngineerDate": "September 2026 - Present",
     "websites": "Websites:",
     "mobile": "Mobile app:"
   },

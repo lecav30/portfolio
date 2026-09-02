@@ -27,6 +27,12 @@ const Experience = () => {
         <li className="ms-4 mb-4">
           <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />
           <time className="mb-1 text-sm leading-none">
+            {t("nttDataEngineerDate")}
+          </time>
+          <h3 className="text-lg font-semibold capitalize">Engineer</h3>
+          <p className="mb-4">{t("nttDataEngineerDescription")}</p>
+          <div className="absolute w-3 h-3 rounded-full mt-1.5 -start-1.5 border border-gray-900 bg-gray-700" />
+          <time className="mb-1 text-sm leading-none">
             {t("nttDataJuniorDate")}
           </time>
           <h3 className="text-lg font-semibold capitalize">Junior Engineer</h3>

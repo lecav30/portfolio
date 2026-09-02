@@ -47,8 +47,7 @@ const Card: FC<Props> = (props) => {
   if (isDesktop) {
     return (
       <div
-        className={`shadow-lg rounded-xl hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px]
-        relative border__show flex gap-12 py-5 px-10 ${
+        className={`shadow-lg rounded-xl min-h-[310px] relative flex gap-12 py-5 px-10 ${
           resolvedTheme === "dark" && "shadow-white/20"
         } `}
       >
@@ -79,9 +78,7 @@ const Card: FC<Props> = (props) => {
     <div
       className={`${
         resolvedTheme === "dark" && "shadow-white/20"
-      } shadow-lg p-4 rounded-xl
-        hover:border-main hover:border-s-4 hover:border-b-[3px] min-h-[310px] min-w-[240px]
-        max-w-[310px] relative border__show`}
+      } shadow-lg p-4 rounded-xl min-h-[310px] min-w-[240px] max-w-[310px] relative`}
     >
       {!showAbout && (
         <div

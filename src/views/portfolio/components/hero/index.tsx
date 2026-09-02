@@ -27,6 +27,16 @@ const Hero = () => {
             UPC
           </a>
         </h3>
+        <h3 className="my-4 text-center md:text-xl md:text-start w-[80%] mx-auto lg:w-full">
+          {t("master")}{" "}
+          <a
+            href="https://utec.edu.pe"
+            target="_blank"
+            className="text-blue-500 hover:underline"
+          >
+            UTEC
+          </a>
+        </h3>
         <p className="mt-2 text-center font-semibold md:mt-6 md:text-xl md:text-start w-[80%] mx-auto lg:w-full">
           {t("job")}{" "}
           <a
@@ -50,6 +60,7 @@ const Hero = () => {
         className="w-auto h-60 md:h-80 lg:h-96"
         src={Avatar}
         alt="Lecav's Avatar"
+        preload
       />
     </section>
   );

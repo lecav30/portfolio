@@ -35,12 +35,12 @@ export const viewport = {
   themeColor: "#0f172a",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const locale = cookieStore.get("locale")?.value === "en" ? "en" : "es";
   const savedTheme = cookieStore.get("theme")?.value;
   const defaultTheme = ["light", "dark", "system"].includes(savedTheme ?? "")

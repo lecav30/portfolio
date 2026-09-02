@@ -1,7 +1,7 @@
 "use client";
 import { Laptop, Menu } from "lucide-react";
 import ThemeChanger from "../themeChanger";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import LanguageChanger from "../languageChanger";
 import { useTranslations } from "next-intl";
@@ -13,6 +13,25 @@ const Header = () => {
   const [activeSection, setActiveSection] = useState(sections[0]);
   const [showMenu, setShowMenu] = useState(false);
   const { resolvedTheme } = useTheme();
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const headerBottom = headerRef.current?.getBoundingClientRect().bottom ?? 0;
+    window.scrollTo({
+      top:
+        section.getBoundingClientRect().top +
+        window.scrollY -
+        headerBottom -
+        16,
+      behavior: "smooth",
+    });
+    window.history.pushState(null, "", `#${sectionId}`);
+    setActiveSection(sectionId);
+    setShowMenu(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,6 +53,7 @@ const Header = () => {
 
   return (
     <div
+      ref={headerRef}
       className={`flex justify-between items-center max-w-[65rem] mx-auto fixed top-0 left-0
         right-0 h-20 px-8 z-50 md:rounded-2xl md:mt-2 md:shadow-lg ${!showMenu && "backdrop-blur-md"}
         ${showMenu && resolvedTheme === "dark" && "bg-dark"}
@@ -42,9 +62,9 @@ const Header = () => {
       <div className="flex gap-4 items-center">
         <a
           href="#hero"
-          onClick={() => {
-            setActiveSection(sections[0]);
-            setShowMenu(false);
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection(sections[0]);
           }}
         >
           <Laptop />
@@ -73,9 +93,9 @@ const Header = () => {
               ${activeSection === "hero" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
               href="#hero"
-              onClick={() => {
-                setActiveSection(sections[0]);
-                setShowMenu(!showMenu);
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(sections[0]);
               }}
             >
               {t("home")}
@@ -87,9 +107,9 @@ const Header = () => {
               ${activeSection === "services" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
               href="#services"
-              onClick={() => {
-                setActiveSection(sections[1]);
-                setShowMenu(!showMenu);
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(sections[1]);
               }}
             >
               {t("services")}
@@ -101,9 +121,9 @@ const Header = () => {
               ${activeSection === "experience" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
               href="#experience"
-              onClick={() => {
-                setActiveSection(sections[2]);
-                setShowMenu(!showMenu);
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(sections[2]);
               }}
             >
               {t("experience")}
@@ -115,9 +135,9 @@ const Header = () => {
               ${activeSection === "projects" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
               href="#projects"
-              onClick={() => {
-                setActiveSection(sections[3]);
-                setShowMenu(!showMenu);
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(sections[3]);
               }}
             >
               {t("projects")}
@@ -129,9 +149,9 @@ const Header = () => {
               ${activeSection === "contact" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
               href="#contact"
-              onClick={() => {
-                setActiveSection(sections[4]);
-                setShowMenu(!showMenu);
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection(sections[4]);
               }}
             >
               {t("contact")}
