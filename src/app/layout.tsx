@@ -9,7 +9,7 @@ const sourceCodePro = Source_Code_Pro({
   subsets: ["latin"],
 });
 
-const SITE_URL = "https://portfolio-sebastianlevano.vercel.app";
+const SITE_URL = "https://www.sebastianlevano.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

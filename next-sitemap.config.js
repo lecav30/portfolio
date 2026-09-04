@@ -1,5 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: "https://portfolio-sebastianlevano.vercel.app",
+  siteUrl: "https://www.sebastianlevano.com",
   generateRobotsTxt: true,
+  additionalPaths: async (config) => [await config.transform(config, "/")],
 };

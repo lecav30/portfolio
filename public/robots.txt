@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://portfolio-sebastianlevano.vercel.app
+Host: https://www.sebastianlevano.com
 
 # Sitemaps
-Sitemap: https://portfolio-sebastianlevano.vercel.app/sitemap.xml
+Sitemap: https://www.sebastianlevano.com/sitemap.xml
