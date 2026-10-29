@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "validate:blog-contract": "bun scripts/validate-blog-contract.ts"
+    "validate:blog-contract": "bun scripts/validate-blog-contract.ts",
+    "validate:blog-revalidation": "bun scripts/validate-blog-revalidation.ts"
   },
   "dependencies": {
     "lucide-react": "^0.394.0",
