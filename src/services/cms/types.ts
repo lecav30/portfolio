@@ -15,10 +15,13 @@ export type BlogMedia = {
 };
 
 export type LexicalNode = {
+  colSpan?: number;
   children?: LexicalNode[];
   fields?: Record<string, unknown>;
   format?: number | string;
+  headerState?: number;
   listType?: string;
+  rowSpan?: number;
   tag?: string;
   text?: string;
   type: string;
@@ -74,6 +77,16 @@ const isRecord = (value: unknown): value is RecordValue =>
 const asFiniteNumber = (value: unknown): number | undefined =>
   typeof value === "number" && Number.isFinite(value) ? value : undefined;
 
+const asTableSpan = (value: unknown): number | undefined => {
+  const number = asFiniteNumber(value);
+  return number !== undefined && Number.isInteger(number) && number > 0 && number <= 100 ? number : undefined;
+};
+
+const asHeaderState = (value: unknown): number | undefined => {
+  const number = asFiniteNumber(value);
+  return number !== undefined && Number.isInteger(number) && number >= 0 && number <= 3 ? number : undefined;
+};
+
 const asNonEmptyString = (value: unknown): string | undefined => {
   if (typeof value !== "string") return undefined;
 
@@ -113,13 +126,16 @@ const normalizeLexicalNode = (value: unknown): LexicalNode | undefined => {
     : undefined;
 
   return {
+    colSpan: asTableSpan(value.colSpan),
     children,
     fields: isRecord(value.fields) ? value.fields : undefined,
     format:
       typeof value.format === "number" || typeof value.format === "string"
         ? value.format
         : undefined,
+    headerState: asHeaderState(value.headerState),
     listType: typeof value.listType === "string" ? value.listType : undefined,
+    rowSpan: asTableSpan(value.rowSpan),
     tag: typeof value.tag === "string" ? value.tag : undefined,
     text: typeof value.text === "string" ? value.text : undefined,
     type: value.type,
