@@ -130,5 +130,6 @@ this phase did not claim static generation or change that cache boundary.
 
 ## Git
 
-The implementation commit is recorded in the final handoff. No push was
-performed.
+The implementation was committed locally as
+`fa65b3e feat(blog): implement technical SEO metadata sitemap and RSS`.
+No push was performed.
