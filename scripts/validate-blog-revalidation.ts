@@ -83,6 +83,8 @@ assert(
   JSON.stringify(paths) ===
     JSON.stringify([
       "/blog",
+      "/blog/rss.xml",
+      "/sitemap.xml",
       "/blog/slug-nueva",
       "/blog/slug-anterior",
       "/blog/category/arquitectura-nueva",

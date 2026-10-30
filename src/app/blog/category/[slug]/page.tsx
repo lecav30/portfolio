@@ -1,5 +1,8 @@
 import { CmsUnavailableError, findCategory, listCategories, listPublishedPosts, parseBlogPage } from "@services/cms";
+import { createBreadcrumbJsonLd, getCategoryMetadata } from "@services/blog/seo";
 import BlogListing from "@views/blog/components/listing";
+import BlogBreadcrumbs from "@views/blog/components/breadcrumbs";
+import BlogJsonLd from "@views/blog/components/jsonLd";
 import BlogShell from "@views/blog/components/shell";
 import BlogUnavailable from "@views/blog/components/unavailable";
 import type { Metadata } from "next";
@@ -19,19 +22,16 @@ const loadCategory = async (slug: string) => {
   }
 };
 
-export async function generateMetadata({ params }: Pick<PageProps, "params">): Promise<Metadata> {
-  const { slug } = await params;
+export async function generateMetadata({ params, searchParams }: Pick<PageProps, "params" | "searchParams">): Promise<Metadata> {
+  const [{ slug }, { page: requestedPage }] = await Promise.all([params, searchParams]);
 
   try {
     const category = await findCategory(slug);
     return category
-      ? {
-          title: `${category.name} | Blog técnico | Sebastian Lévano`,
-          description: category.description ?? `Artículos de la categoría ${category.name}.`,
-        }
-      : {};
+      ? getCategoryMetadata(category, parseBlogPage(requestedPage))
+      : { alternates: { canonical: null }, robots: { follow: false, index: false } };
   } catch {
-    return {};
+    return { alternates: { canonical: null }, robots: { follow: false, index: false } };
   }
 }
 
@@ -65,6 +65,13 @@ export default async function BlogCategoryPage({ params, searchParams }: PagePro
 
   return (
     <BlogShell>
+      <BlogJsonLd
+        data={createBreadcrumbJsonLd([
+          { name: "Blog", path: "/blog" },
+          { name: category.name, path: `/blog/category/${category.slug}` },
+        ])}
+      />
+      <BlogBreadcrumbs items={[{ href: "/blog", label: "Blog" }, { label: category.name }]} />
       <BlogListing
         basePath={`/blog/category/${category.slug}`}
         categories={categoriesResult.status === "fulfilled" ? categoriesResult.value : [category]}

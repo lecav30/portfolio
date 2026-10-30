@@ -1,6 +1,6 @@
 import type { BlogPost } from "@services/cms";
-import Link from "next/link";
 
+import BlogBreadcrumbs from "../breadcrumbs";
 import LexicalContent from "../lexicalContent";
 import { formatBlogDate } from "../postCard";
 
@@ -10,13 +10,14 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
 
   return (
     <article className="mx-auto max-w-3xl space-y-8">
-      <Link className="inline-flex font-semibold text-main hover:underline" href="/blog">
-        ← Volver al blog
-      </Link>
+      <BlogBreadcrumbs
+        items={[
+          { href: "/blog", label: "Blog" },
+          { href: `/blog/category/${post.category.slug}`, label: post.category.name },
+          { label: post.title },
+        ]}
+      />
       <header className="space-y-4">
-        <Link className="font-semibold text-main hover:underline" href={`/blog/category/${post.category.slug}`}>
-          {post.category.name}
-        </Link>
         <h1 className="text-4xl font-bold leading-tight text-slate-950 sm:text-5xl dark:text-white">{post.title}</h1>
         {post.excerpt ? <p className="text-xl leading-8 text-slate-700 dark:text-slate-200">{post.excerpt}</p> : null}
         <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-500 dark:text-slate-400">

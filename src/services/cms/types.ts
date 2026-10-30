@@ -27,6 +27,7 @@ export type LexicalNode = {
 };
 
 export type BlogPost = {
+  canonicalUrl?: string;
   category: BlogCategory;
   content: LexicalNode;
   contentType: "tutorial" | "review" | "opinion" | "news" | "article";
@@ -193,6 +194,7 @@ export const normalizePost = (value: unknown): BlogPost | undefined => {
   }
 
   return {
+    canonicalUrl: toSafeHttpUrl(value.canonicalUrl),
     category,
     content,
     contentType: contentType as BlogPost["contentType"],
@@ -251,16 +253,18 @@ export const parseBlogPage = (value: string | string[] | undefined): number => {
 
 export const createPostQuery = ({
   categoryID,
+  limit = BLOG_PAGE_SIZE,
   page,
   slug,
 }: {
   categoryID?: number;
+  limit?: number;
   page: number;
   slug?: string;
 }): URLSearchParams => {
   const query = new URLSearchParams({
     depth: "2",
-    limit: String(BLOG_PAGE_SIZE),
+    limit: String(limit),
     page: String(page),
     sort: "-publishedAt",
     "where[_status][equals]": "published",

@@ -1,5 +1,7 @@
 import { CmsUnavailableError, findPublishedPost } from "@services/cms";
+import { createBlogPostingJsonLd, createBreadcrumbJsonLd, getPostMetadata } from "@services/blog/seo";
 import BlogArticle from "@views/blog/components/article";
+import BlogJsonLd from "@views/blog/components/jsonLd";
 import BlogShell from "@views/blog/components/shell";
 import BlogUnavailable from "@views/blog/components/unavailable";
 import type { Metadata } from "next";
@@ -23,16 +25,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
   try {
     const post = await findPublishedPost(slug);
-    if (!post) return {};
+    if (!post) return { alternates: { canonical: null }, robots: { follow: false, index: false } };
 
-    return {
-      title: post.seoTitle ?? `${post.title} | Sebastian Lévano`,
-      description: post.seoDescription ?? post.excerpt,
-      robots: post.noIndex ? { index: false, follow: false } : undefined,
-    };
+    return getPostMetadata(post);
   } catch (error) {
-    if (error instanceof CmsUnavailableError) return {};
-    return {};
+    if (error instanceof CmsUnavailableError) return { alternates: { canonical: null }, robots: { follow: false, index: false } };
+    return { alternates: { canonical: null }, robots: { follow: false, index: false } };
   }
 }
 
@@ -51,6 +49,16 @@ export default async function BlogPostPage({ params }: PageProps) {
 
   return (
     <BlogShell>
+      <BlogJsonLd
+        data={[
+          createBlogPostingJsonLd(result.post),
+          createBreadcrumbJsonLd([
+            { name: "Blog", path: "/blog" },
+            { name: result.post.category.name, path: `/blog/category/${result.post.category.slug}` },
+            { name: result.post.title, path: `/blog/${result.post.slug}` },
+          ]),
+        ]}
+      />
       <BlogArticle post={result.post} />
     </BlogShell>
   );

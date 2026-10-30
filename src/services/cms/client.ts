@@ -13,6 +13,8 @@ import {
 const CMS_TIMEOUT_MS = 5000;
 const CMS_MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 const CMS_REVALIDATE_SECONDS = 300;
+const CMS_DISCOVERY_PAGE_SIZE = 100;
+const CMS_DISCOVERY_MAX_PAGES = 500;
 
 export class CmsUnavailableError extends Error {
   constructor() {
@@ -133,6 +135,37 @@ export const listPublishedPosts = async ({
   );
 
   return normalizeResponse(() => normalizePostList(response));
+};
+
+/**
+ * Bounded crawler/feed discovery. This pages through the public endpoint
+ * rather than trusting a single list response, and fails closed if the CMS
+ * reports a volume beyond the configured discovery safety budget.
+ */
+export const listAllPublishedPosts = async (): Promise<BlogPost[]> => {
+  const firstResponse = await request(
+    "/api/posts",
+    createPostQuery({ limit: CMS_DISCOVERY_PAGE_SIZE, page: 1 }),
+    ["blog:posts"],
+  );
+  const firstPage = normalizeResponse(() => normalizePostList(firstResponse));
+
+  if (firstPage.totalPages > CMS_DISCOVERY_MAX_PAGES) throw new CmsUnavailableError();
+
+  const posts = [...firstPage.docs];
+  for (let page = 2; page <= firstPage.totalPages; page += 1) {
+    const response = await request(
+      "/api/posts",
+      createPostQuery({ limit: CMS_DISCOVERY_PAGE_SIZE, page }),
+      ["blog:posts"],
+    );
+    const result = normalizeResponse(() => normalizePostList(response));
+
+    if (result.page !== page || result.totalPages !== firstPage.totalPages) throw new CmsUnavailableError();
+    posts.push(...result.docs);
+  }
+
+  return posts;
 };
 
 export const findPublishedPost = async (slug: string): Promise<BlogPost | undefined> => {

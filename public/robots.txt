@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.sebastianlevano.com
-
-# Sitemaps
-Sitemap: https://www.sebastianlevano.com/sitemap.xml

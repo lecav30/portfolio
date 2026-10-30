@@ -4,6 +4,7 @@ export {
   CmsUnavailableError,
   findCategory,
   findPublishedPost,
+  listAllPublishedPosts,
   listCategories,
   listPublishedPosts,
 } from "./client";

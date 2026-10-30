@@ -1,14 +1,18 @@
 import { listCategories, listPublishedPosts, parseBlogPage } from "@services/cms";
+import { getBlogIndexMetadata } from "@services/blog/seo";
 import BlogListing from "@views/blog/components/listing";
 import BlogShell from "@views/blog/components/shell";
 import BlogUnavailable from "@views/blog/components/unavailable";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Blog técnico | Sebastian Lévano",
-  description: "Artículos técnicos, tutoriales, opiniones, reviews y noticias de Sebastian Lévano.",
-  alternates: { canonical: "/blog" },
-};
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string | string[] }>;
+}): Promise<Metadata> {
+  const { page: requestedPage } = await searchParams;
+  return getBlogIndexMetadata(parseBlogPage(requestedPage));
+}
 
 export default async function BlogPage({
   searchParams,

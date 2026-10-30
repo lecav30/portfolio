@@ -19,6 +19,8 @@ export const getBlogRevalidationTargets = (event: BlogRevalidationEvent): Revali
   return {
     paths: [
       "/blog",
+      "/blog/rss.xml",
+      "/sitemap.xml",
       ...[...slugs].map((slug) => `/blog/${slug}`),
       ...[...categorySlugs].map((slug) => `/blog/category/${slug}`),
     ],
