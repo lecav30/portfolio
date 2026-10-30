@@ -2,6 +2,7 @@ import { LanguageProvider } from "@components/languageProvider";
 import "./globals.css";
 import { ThemeProvider } from "@components/themeProvider";
 import { Source_Code_Pro } from "next/font/google";
+import "katex/dist/katex.min.css";
 import { cookies } from "next/headers";
 import type { Metadata } from "next";
 

@@ -5,6 +5,8 @@ import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 import LanguageChanger from "../languageChanger";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const t = useTranslations("Header");
@@ -14,10 +16,15 @@ const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const { resolvedTheme } = useTheme();
   const headerRef = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
+  const router = useRouter();
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
-    if (!section) return;
+    if (!section) {
+      router.push(`/#${sectionId}`);
+      return;
+    }
 
     const headerBottom = headerRef.current?.getBoundingClientRect().bottom ?? 0;
     window.scrollTo({
@@ -31,6 +38,16 @@ const Header = () => {
     window.history.pushState(null, "", `#${sectionId}`);
     setActiveSection(sectionId);
     setShowMenu(false);
+  };
+
+  const handleSectionNavigation = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+    if (pathname !== "/") {
+      setShowMenu(false);
+      return;
+    }
+
+    event.preventDefault();
+    scrollToSection(sectionId);
   };
 
   useEffect(() => {
@@ -60,15 +77,9 @@ const Header = () => {
         ${showMenu && resolvedTheme === "light" && "bg-white"}`}
     >
       <div className="flex gap-4 items-center">
-        <a
-          href="#hero"
-          onClick={(event) => {
-            event.preventDefault();
-            scrollToSection(sections[0]);
-          }}
-        >
+        <Link href="/" onClick={() => setShowMenu(false)}>
           <Laptop />
-        </a>
+        </Link>
       </div>
       <Menu
         className={`cursor-pointer md:hidden`}
@@ -92,11 +103,8 @@ const Header = () => {
               className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
               ${activeSection === "hero" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
-              href="#hero"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(sections[0]);
-              }}
+              href={pathname === "/" ? "#hero" : "/#hero"}
+              onClick={(event) => handleSectionNavigation(event, sections[0])}
             >
               {t("home")}
             </a>
@@ -106,11 +114,8 @@ const Header = () => {
               className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
               ${activeSection === "services" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
-              href="#services"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(sections[1]);
-              }}
+              href={pathname === "/" ? "#services" : "/#services"}
+              onClick={(event) => handleSectionNavigation(event, sections[1])}
             >
               {t("services")}
             </a>
@@ -120,11 +125,8 @@ const Header = () => {
               className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
               ${activeSection === "experience" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
-              href="#experience"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(sections[2]);
-              }}
+              href={pathname === "/" ? "#experience" : "/#experience"}
+              onClick={(event) => handleSectionNavigation(event, sections[2])}
             >
               {t("experience")}
             </a>
@@ -134,11 +136,8 @@ const Header = () => {
               className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
               ${activeSection === "projects" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
-              href="#projects"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(sections[3]);
-              }}
+              href={pathname === "/" ? "#projects" : "/#projects"}
+              onClick={(event) => handleSectionNavigation(event, sections[3])}
             >
               {t("projects")}
             </a>
@@ -148,14 +147,22 @@ const Header = () => {
               className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
               ${activeSection === "contact" && "border-main border-b-[0.2rem]"}
               transition-all duration-200 ease-in-out`}
-              href="#contact"
-              onClick={(event) => {
-                event.preventDefault();
-                scrollToSection(sections[4]);
-              }}
+              href={pathname === "/" ? "#contact" : "/#contact"}
+              onClick={(event) => handleSectionNavigation(event, sections[4])}
             >
               {t("contact")}
             </a>
+          </li>
+          <li>
+            <Link
+              className={`mb-5 md:mb-0 hover:border-main hover:border-b-[0.2rem]
+              ${pathname.startsWith("/blog") && "border-main border-b-[0.2rem]"}
+              transition-all duration-200 ease-in-out`}
+              href="/blog"
+              onClick={() => setShowMenu(false)}
+            >
+              {t("blog")}
+            </Link>
           </li>
           <li>
             <div className="flex gap-4">
