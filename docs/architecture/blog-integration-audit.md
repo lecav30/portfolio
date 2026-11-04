@@ -40,7 +40,7 @@ a monorepo or an in-process Payload installation necessary.
 | Node/runtime declaration | `package.json`, repository root | No `engines`, `.nvmrc`, `.node-version`, `.tool-versions`, Dockerfile, or runtime setting is committed. `@types/node` is `^20`, which is not a runtime guarantee. |
 | Scripts/tooling | `package.json` | `dev`, `build`, `postbuild` (`next-sitemap`), `start`, and `lint`; ESLint 9/core-web-vitals, strict TypeScript/no emit, PostCSS/Tailwind. |
 | Styling/components | `tailwind.config.ts`, `src/components`, `src/views/portfolio` | Tailwind utilities plus one CSS Module (`contact`); shared components use directory `index.tsx`; portfolio feature components live in `src/views/portfolio`. Aliases include `@components`, `@views`, `@hooks`, and `@/`. |
-| Internationalization | `src/i18n/request.ts`, `src/components/languageProvider/index.tsx` | `next-intl` messages are `messages/es.json` and `messages/en.json`; locale is a `locale` cookie, not a locale path segment. Spanish is the server default. |
+| Internationalization | `src/i18n/request.ts`, `src/components/languageProvider/index.tsx` | `next-intl` messages remain in `messages/es.json` and `messages/en.json`; public runtime is English-only and ignores the legacy locale cookie. |
 | Hosting evidence | `vercel.json`, `.gitignore` | Vercel configuration is committed, but no project ID, build settings, domains, Vercel environment configuration, or deployment metadata is committed. The public domain is used in site/SEO config, not proof of the active Vercel project configuration. |
 
 `README.md` is the unmodified create-next-app Pages Router template and claims
@@ -218,13 +218,12 @@ list only published posts, and give each pagination state a deliberate canonical
 and robots policy. Categories/tags should be links only after their public URL
 rules are chosen; tags need not receive public archive routes at launch.
 
-Language needs a product decision before implementation. The existing cookie
-changes UI language without changing the canonical URL, so translating a post
-must not silently make `/blog/<slug>` return different indexed content by cookie.
-Launch Spanish-only public article content at the canonical unprefixed paths.
-When English launches, choose and document locale URLs (for example `/en/blog`)
-with `hreflang`, translation relationships, and independent localized slugs;
-do not infer that model from the current UI toggle.
+Public portfolio and blog UI are English-only. The legacy locale cookie is
+ignored for public HTML, metadata, and CMS reads; Spanish messages and the
+language-switch component remain in source for future reuse but are not rendered.
+The CMS remains non-localized, so article titles and bodies are published exactly
+as authored under the existing unprefixed canonical URLs. No locale URLs,
+localized slugs, or `hreflang` are emitted.
 
 ## 6. Future CMS integration contract and security model
 

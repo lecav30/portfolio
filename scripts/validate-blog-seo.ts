@@ -58,10 +58,14 @@ assert(
   typeof paginatedRobots === "object" && paginatedRobots !== null && !Array.isArray(paginatedRobots) && paginatedRobots.index === false,
   "Paginated indexes must be noindex.",
 );
+const indexMetadata = getBlogIndexMetadata(1);
+assert(indexMetadata.robots === undefined, "The canonical blog index must remain indexable.");
+assert(String(indexMetadata.title).includes("Technical blog"), "Public blog metadata must be English.");
 
 const jsonLd = serializeJsonLd([createBlogPostingJsonLd(post), createBreadcrumbJsonLd([{ name: "Blog", path: "/blog" }])]);
 assert(!jsonLd.includes("</script>"), "JSON-LD serialization must escape script delimiters.");
 assert(jsonLd.includes("\\u003c"), "JSON-LD serialization should escape angle brackets.");
+assert(createBlogPostingJsonLd(post).inLanguage === "en", "JSON-LD must identify the English public experience.");
 
 const sitemap = createBlogSitemapEntries([post, noIndexPost]);
 assert(sitemap.some((entry) => entry.url.endsWith("/blog/arquitectura-canonica")), "Indexable canonical post is missing from sitemap.");
@@ -74,6 +78,7 @@ assert(
 
 const rss = createRssXml([post, noIndexPost]);
 assert(rss.includes("application/rss+xml"), "RSS self link is missing.");
+assert(rss.includes("<language>en-US</language>"), "RSS language must be English.");
 assert(rss.includes("&lt;caracteres&gt; &amp;"), "RSS text must be XML escaped.");
 assert(!rss.includes("privado-publicado"), "noIndex post leaked into RSS.");
 assert(!rss.includes("</script><script>"), "RSS title was not escaped.");

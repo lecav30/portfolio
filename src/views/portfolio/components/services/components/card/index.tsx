@@ -14,10 +14,12 @@ const Card: FC<Props> = (props) => {
   const [showTechnologies, setShowTechnologies] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
   const [screenWidth, setScreenWidth] = useState<number>(0);
+  const [mounted, setMounted] = useState(false);
   const t = useTranslations("Services");
 
   useEffect(() => {
     setScreenWidth(window.innerWidth);
+    setMounted(true);
   }, []);
 
   const { resolvedTheme } = useTheme();
@@ -35,6 +37,7 @@ const Card: FC<Props> = (props) => {
   }, []);
 
   const isDesktop = screenWidth >= 1060;
+  const isDark = mounted && resolvedTheme === "dark";
 
   const handleShowAbout = () => {
     setShowAbout(!showAbout);
@@ -48,7 +51,7 @@ const Card: FC<Props> = (props) => {
     return (
       <div
         className={`shadow-lg rounded-xl min-h-[310px] relative flex gap-12 py-5 px-10 ${
-          resolvedTheme === "dark" && "shadow-white/20"
+          isDark ? "shadow-white/20" : ""
         } `}
       >
         <div
@@ -77,7 +80,7 @@ const Card: FC<Props> = (props) => {
   return (
     <div
       className={`${
-        resolvedTheme === "dark" && "shadow-white/20"
+        isDark ? "shadow-white/20" : ""
       } shadow-lg p-4 rounded-xl min-h-[310px] min-w-[240px] max-w-[310px] relative`}
     >
       {!showAbout && (
@@ -108,7 +111,7 @@ const Card: FC<Props> = (props) => {
               strokeLinejoin="round"
             >
               <polyline
-                fill={resolvedTheme == "dark" ? "#fff" : "#000"}
+                fill={isDark ? "#fff" : "#000"}
                 points="9 14 4 9 9 4"
               ></polyline>
               <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>

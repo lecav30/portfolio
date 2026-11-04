@@ -1,5 +1,6 @@
 import {
   BLOG_PAGE_SIZE,
+  createCategoryQuery,
   createPostQuery,
   normalizeCategoryList,
   normalizePostList,
@@ -77,10 +78,15 @@ assert(categoryList.docs[0]?.slug === "arquitectura", "Category slug should be r
 
 const query = createPostQuery({ categoryID: category.id, page: 2, slug: publishedPost.slug });
 assert(query.get("page") === "2" && query.get("limit") === String(BLOG_PAGE_SIZE), "Post pagination query is incorrect.");
+assert(query.get("locale") === null, "CMS reads must not choose content by locale.");
 assert(query.get("where[_status][equals]") === "published", "Published status filter is required.");
 assert(query.get("where[category][equals]") === "7", "Category filter is required.");
 assert(query.get("where[slug][equals]") === publishedPost.slug, "Slug filter is required.");
 assert(createPostQuery({ limit: 100, page: 1 }).get("limit") === "100", "Discovery pagination limit is incorrect.");
+
+const categoryQuery = createCategoryQuery({ limit: 1, slug: category.slug });
+assert(categoryQuery.get("where[slug][equals]") === category.slug, "Category slug filter is required.");
+assert(categoryQuery.get("locale") === null, "Category reads must not choose content by locale.");
 
 assert(parseBlogPage("3") === 3 && parseBlogPage("0") === 1 && parseBlogPage(["2", "3"]) === 2, "Page parsing is unsafe.");
 assert(toSafeHttpUrl("javascript:alert(1)") === undefined, "Unsafe URLs must be rejected.");

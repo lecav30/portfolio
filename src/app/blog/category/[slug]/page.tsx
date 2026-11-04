@@ -75,7 +75,7 @@ export default async function BlogCategoryPage({ params, searchParams }: PagePro
       <BlogListing
         basePath={`/blog/category/${category.slug}`}
         categories={categoriesResult.status === "fulfilled" ? categoriesResult.value : [category]}
-        description={category.description ?? `Artículos publicados en ${category.name}.`}
+        description={category.description}
         heading={category.name}
         posts={postsResult.value}
         selectedCategory={category}

@@ -25,7 +25,7 @@ canonical, icon, and verification remain intact.
 
 | Route | Canonical / robots | Metadata and structured data |
 | --- | --- | --- |
-| `/blog` | Absolute self canonical; indexable. | Spanish title/description, OG/Twitter, RSS discovery link. |
+| `/blog` | Absolute self canonical; indexable. | English title/description, OG/Twitter, RSS discovery link. |
 | `/blog?page=N` | Absolute self canonical with `?page=N`; `noindex, follow` for `N > 1`. | Distinct page title; pagination is intentionally not put in the sitemap. |
 | `/blog/[slug]` | Same-origin HTTPS CMS canonical override when valid; otherwise absolute self canonical. `noIndex` becomes `noindex, follow`. | SEO title/description fallbacks, article OG/Twitter image when public Media is present, `BlogPosting` plus breadcrumb JSON-LD. |
 | `/blog/category/[slug]` | Absolute self canonical; paginated states are `noindex, follow`. | Category description fallback, OG/Twitter, breadcrumb JSON-LD, RSS discovery link. |
@@ -35,9 +35,9 @@ Canonical overrides are deliberately conservative: only absolute HTTPS URLs on
 `www.sebastianlevano.com`, below `/blog/`, without query strings/fragments are
 honored. Trailing-slash overrides are rejected to preserve the portfolio's
 no-trailing-slash canonical policy. Cross-origin, HTTP, malformed, or otherwise
-unsafe CMS values fall back to the current public article URL. No `hreflang` is emitted: public blog
-content is Spanish-first and English URL/content mapping remains a future
-product decision.
+unsafe CMS values fall back to the current public article URL. The public runtime
+is English-only and does not vary by the legacy locale cookie. No `hreflang` is
+emitted because the CMS remains non-localized and canonical blog URLs are unchanged.
 
 ## Sitemap, robots, RSS, and freshness
 

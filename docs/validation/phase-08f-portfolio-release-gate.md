@@ -100,5 +100,30 @@ then repeat only the same malformed unauthenticated POST. A `415`, `401`, or
 `503` response proves the route is deployed; it does **not** validate that CMS
 and portfolio share the correct secret.
 
-No release approval has been received in this session. No production action was
-performed.
+At the time of this gate, no release approval had been received and no
+production action was performed by the agent.
+
+## Authorized-rollout verification update
+
+After conditional authorization, the remote state was fetched again before any
+local Git mutation. It had changed externally:
+
+| Item | Observed value |
+| --- | --- |
+| `origin/develop` | `0922063af50379604edcbf996d21a77c977f397c` |
+| `origin/main` | `92b9c5987798b1ad4bc96cdd2ebc5ee346cb7b6f` |
+| `origin/main` subject | `Merge pull request #12 from lecav30/develop` |
+| Merge parents | Previous `main` (`ba99794`) and the exact inspected `develop` commit (`0922063`) |
+| Tree comparison | `git diff --stat develop..origin/main` is empty. |
+
+This shows that GitHub already merged the inspected `develop` tip into `main`
+through PR #12. The agent did not create the PR, merge, or push it. The original
+fast-forward-only condition therefore changed before this agent could act; no
+additional Git release action is appropriate.
+
+Vercel verification remains blocked: there is still no local portfolio project
+link or Vercel CLI, so project identity, actual production branch/deployment,
+and the Production scopes of `BLOG_REVALIDATION_SECRET` and
+`PAYLOAD_CMS_URL` cannot be evidenced. Do not infer that GitHub's merge has
+completed a Vercel deployment. No deployment monitor or further production
+request was run after this blocker was found.

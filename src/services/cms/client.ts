@@ -1,6 +1,7 @@
 import "server-only";
 
 import {
+  createCategoryQuery,
   createPostQuery,
   type BlogCategory,
   type BlogPost,
@@ -184,7 +185,7 @@ export const findPublishedPost = async (slug: string): Promise<BlogPost | undefi
 export const listCategories = async (): Promise<BlogCategory[]> => {
   const response = await request(
     "/api/categories",
-    new URLSearchParams({ depth: "0", limit: "100", page: "1", sort: "name" }),
+    createCategoryQuery({ sort: "name" }),
     ["blog:categories"],
   );
 
@@ -196,12 +197,7 @@ export const findCategory = async (slug: string): Promise<BlogCategory | undefin
 
   const response = await request(
     "/api/categories",
-    new URLSearchParams({
-      depth: "0",
-      limit: "1",
-      page: "1",
-      "where[slug][equals]": slug,
-    }),
+    createCategoryQuery({ limit: 1, slug }),
     ["blog:categories", `blog:category:${slug}`],
   );
 
