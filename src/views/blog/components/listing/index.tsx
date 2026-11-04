@@ -1,5 +1,6 @@
 import type { BlogCategory, BlogPost, Paginated } from "@services/cms/types";
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 import PostCard from "../postCard";
 
@@ -15,28 +16,32 @@ export default function BlogListing({
 }: {
   basePath: string;
   categories: BlogCategory[];
-  description: string;
-  heading: string;
+  description?: string;
+  heading?: string;
   posts: Paginated<BlogPost>;
   selectedCategory?: BlogCategory;
 }) {
+  const t = useTranslations("Blog");
+
   return (
     <section aria-labelledby="blog-heading" className="space-y-10">
       <div className="max-w-3xl space-y-3">
-        <p className="font-semibold uppercase tracking-[0.2em] text-main">Blog</p>
+        <p className="font-semibold uppercase tracking-[0.2em] text-main">{t("eyebrow")}</p>
         <h1 id="blog-heading" className="text-4xl font-bold text-slate-950 sm:text-5xl dark:text-white">
-          {heading}
+          {heading ?? t("indexHeading")}
         </h1>
-        <p className="text-lg leading-8 text-slate-700 dark:text-slate-200">{description}</p>
+        <p className="text-lg leading-8 text-slate-700 dark:text-slate-200">
+          {description ?? (selectedCategory ? t("categoryDescription", { category: selectedCategory.name }) : t("indexDescription"))}
+        </p>
       </div>
 
-      <nav aria-label="Categorías del blog" className="flex flex-wrap gap-3">
+      <nav aria-label={t("categories")} className="flex flex-wrap gap-3">
         <Link
           aria-current={!selectedCategory ? "page" : undefined}
           className={`rounded-full border px-4 py-2 text-sm font-semibold ${!selectedCategory ? "border-main bg-main text-white" : "border-slate-300 hover:border-main dark:border-slate-700"}`}
           href="/blog"
         >
-          Todas
+          {t("allCategories")}
         </Link>
         {categories.map((category) => (
           <Link
@@ -59,26 +64,26 @@ export default function BlogListing({
       ) : (
         <div className="rounded-2xl border border-dashed border-slate-300 p-8 text-slate-700 dark:border-slate-200 dark:text-slate-200">
           {selectedCategory
-            ? "Aún no hay artículos publicados en esta categoría."
-            : "Aún no hay artículos publicados. Vuelve pronto para encontrar contenido técnico nuevo."}
+            ? t("noCategoryPosts")
+            : t("noPosts")}
         </div>
       )}
 
       {posts.totalPages > 1 ? (
-        <nav aria-label="Paginación del blog" className="flex items-center justify-between gap-4">
+        <nav aria-label={t("pagination")} className="flex items-center justify-between gap-4">
           {posts.page > 1 ? (
             <Link className="font-semibold text-main hover:underline" href={pageHref(basePath, posts.page - 1)}>
-              ← Anterior
+              {t("previous")}
             </Link>
           ) : (
             <span aria-hidden="true" />
           )}
           <p aria-live="polite" className="text-sm text-slate-600 dark:text-slate-300">
-            Página {posts.page} de {posts.totalPages}
+            {t("page", { page: posts.page, totalPages: posts.totalPages })}
           </p>
           {posts.page < posts.totalPages ? (
             <Link className="font-semibold text-main hover:underline" href={pageHref(basePath, posts.page + 1)}>
-              Siguiente →
+              {t("next")}
             </Link>
           ) : (
             <span aria-hidden="true" />

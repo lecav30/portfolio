@@ -2,15 +2,17 @@
 
 import { useState } from "react";
 
-export default function CodeCopyButton({ code }: { code: string }) {
-  const [message, setMessage] = useState("Copiar código");
+type Labels = { codeCopied: string; copyCode: string; copyFailed: string };
+
+export default function CodeCopyButton({ code, labels }: { code: string; labels: Labels }) {
+  const [message, setMessage] = useState(labels.copyCode);
 
   const copy = async () => {
     try {
       await navigator.clipboard.writeText(code);
-      setMessage("Código copiado");
+      setMessage(labels.codeCopied);
     } catch {
-      setMessage("No se pudo copiar el código");
+      setMessage(labels.copyFailed);
     }
   };
 
@@ -21,7 +23,7 @@ export default function CodeCopyButton({ code }: { code: string }) {
         onClick={copy}
         type="button"
       >
-        Copiar
+        {labels.copyCode}
       </button>
       <span aria-live="polite" className="sr-only">
         {message}

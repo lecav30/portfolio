@@ -43,8 +43,6 @@ export default async function BlogPage({
       <BlogListing
         basePath="/blog"
         categories={categories}
-        description="Tutoriales, opiniones, reviews y notas sobre desarrollo de software."
-        heading="Artículos técnicos"
         posts={postsResult.value}
       />
     </BlogShell>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 
 type Breadcrumb = {
   href?: string;
@@ -6,8 +7,10 @@ type Breadcrumb = {
 };
 
 export default function BlogBreadcrumbs({ items }: { items: Breadcrumb[] }) {
+  const t = useTranslations("Blog");
+
   return (
-    <nav aria-label="Migas de pan">
+    <nav aria-label={t("breadcrumbs")}>
       <ol className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-slate-600 dark:text-slate-300">
         {items.map((item, index) => (
           <li className="flex items-center gap-x-2" key={`${item.href ?? "current"}-${item.label}`}>

@@ -291,3 +291,11 @@ export const createPostQuery = ({
 
   return query;
 };
+
+export const createCategoryQuery = ({ limit = 100, slug, sort }: { limit?: number; slug?: string; sort?: string } = {}): URLSearchParams => {
+  const query = new URLSearchParams({ depth: "0", limit: String(limit), page: "1" });
+
+  if (slug) query.set("where[slug][equals]", slug);
+  if (sort) query.set("sort", sort);
+  return query;
+};

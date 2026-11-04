@@ -13,6 +13,23 @@ const maxLatexLength = 10_000;
 const highlighter = getSingletonHighlighter({ langs: [...codeLanguages], themes: ["github-dark"] });
 
 type Heading = { id: string; level: number; text: string };
+type ContentLabels = {
+  codeCopied: string;
+  copyCode: string;
+  copyFailed: string;
+  inThisArticle: string;
+  section: string;
+  text: string;
+};
+
+const defaultLabels: ContentLabels = {
+  codeCopied: "Código copiado",
+  copyCode: "Copiar código",
+  copyFailed: "No se pudo copiar el código",
+  inThisArticle: "En este artículo",
+  section: "Sección",
+  text: "texto",
+};
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null && !Array.isArray(value);
@@ -47,7 +64,7 @@ const headingSlug = (text: string): string => {
   return normalized || "seccion";
 };
 
-const headingsFrom = (root: LexicalNode): Map<string, Heading> => {
+const headingsFrom = (root: LexicalNode, emptyHeading: string): Map<string, Heading> => {
   const headings = new Map<string, Heading>();
   const counts = new Map<string, number>();
 
@@ -59,7 +76,7 @@ const headingsFrom = (root: LexicalNode): Map<string, Heading> => {
       counts.set(base, count);
       const tag = node.tag ?? "h2";
       const level = tag === "h3" ? 3 : tag === "h4" ? 4 : tag === "h5" ? 5 : tag === "h6" ? 6 : 2;
-      headings.set(key, { id: count === 1 ? base : `${base}-${count}`, level, text: text || "Sección" });
+      headings.set(key, { id: count === 1 ? base : `${base}-${count}`, level, text: text || emptyHeading });
     }
 
     node.children?.forEach((child, index) => visit(child, `${key}-${index}`));
@@ -139,11 +156,11 @@ function Math({ display, latex }: { display: boolean; latex: string }) {
   return html ? <span dangerouslySetInnerHTML={{ __html: html }} /> : <code className="rounded bg-slate-200 px-1 py-0.5 text-sm dark:bg-slate-800">{latex}</code>;
 }
 
-const childrenOf = (node: LexicalNode, key: string, headings: Map<string, Heading>): ReactNode =>
-  node.children?.map((child, index) => <LexicalNodeView headings={headings} key={`${key}-${index}`} node={child} nodeKey={`${key}-${index}`} />) ?? null;
+const childrenOf = (node: LexicalNode, key: string, headings: Map<string, Heading>, labels: ContentLabels): ReactNode =>
+  node.children?.map((child, index) => <LexicalNodeView headings={headings} key={`${key}-${index}`} labels={labels} node={child} nodeKey={`${key}-${index}`} />) ?? null;
 
-function LexicalNodeView({ headings, node, nodeKey }: { headings: Map<string, Heading>; node: LexicalNode; nodeKey: string }) {
-  const children = childrenOf(node, nodeKey, headings);
+function LexicalNodeView({ headings, labels, node, nodeKey }: { headings: Map<string, Heading>; labels: ContentLabels; node: LexicalNode; nodeKey: string }) {
+  const children = childrenOf(node, nodeKey, headings, labels);
 
   switch (node.type) {
     case "text":
@@ -205,8 +222,8 @@ function LexicalNodeView({ headings, node, nodeKey }: { headings: Map<string, He
         return (
           <figure className="overflow-hidden rounded-xl border border-slate-700 bg-slate-950 shadow-sm">
             <figcaption className="flex items-center justify-between gap-3 border-b border-slate-700 px-4 py-2 text-xs font-medium uppercase tracking-wide text-slate-300">
-              <span>{isCodeLanguage(language) ? language : "texto"}</span>
-              <CodeCopyButton code={code} />
+              <span>{isCodeLanguage(language) ? language : labels.text}</span>
+              <CodeCopyButton code={code} labels={labels} />
             </figcaption>
             <HighlightedCode code={code} language={knownLanguage} />
           </figure>
@@ -248,12 +265,12 @@ function LexicalNodeView({ headings, node, nodeKey }: { headings: Map<string, He
   }
 }
 
-function TableOfContents({ headings }: { headings: Heading[] }) {
+function TableOfContents({ headings, title }: { headings: Heading[]; title: string }) {
   if (headings.length < 3) return null;
 
   return (
-    <nav aria-label="Tabla de contenidos" className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
-      <p className="font-semibold text-slate-950 dark:text-white">En este artículo</p>
+    <nav aria-label={title} className="rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-900">
+      <p className="font-semibold text-slate-950 dark:text-white">{title}</p>
       <ol className="mt-2 space-y-1 text-sm">
         {headings.map((heading) => (
           <li className={heading.level > 2 ? "ml-4" : undefined} key={heading.id}>
@@ -265,14 +282,14 @@ function TableOfContents({ headings }: { headings: Heading[] }) {
   );
 }
 
-export default function LexicalContent({ content }: { content: LexicalNode }) {
-  const headingsByKey = headingsFrom(content);
+export default function LexicalContent({ content, labels = defaultLabels }: { content: LexicalNode; labels?: ContentLabels }) {
+  const headingsByKey = headingsFrom(content, labels.section);
   const headings = [...headingsByKey.values()];
 
   return (
     <div className="space-y-6 text-base sm:text-lg">
-      <TableOfContents headings={headings} />
-      {childrenOf(content, "root", headingsByKey)}
+      <TableOfContents headings={headings} title={labels.inThisArticle} />
+      {childrenOf(content, "root", headingsByKey, labels)}
     </div>
   );
 }

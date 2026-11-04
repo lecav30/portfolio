@@ -6,9 +6,9 @@ export default function BlogShell({ children }: { children: ReactNode }) {
   return (
     <>
       <header>
-        <Header />
+        <Header variant="blog" />
       </header>
-      <main className="mx-auto mt-32 w-[95%] max-w-5xl pb-16">{children}</main>
+      <main className="mx-auto mt-24 w-[95%] max-w-5xl pb-16">{children}</main>
       <footer className="mx-auto w-[95%] max-w-5xl">
         <Footer />
       </footer>

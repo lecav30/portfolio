@@ -3,10 +3,13 @@ import type { BlogPost } from "@services/cms";
 import BlogBreadcrumbs from "../breadcrumbs";
 import LexicalContent from "../lexicalContent";
 import { formatBlogDate } from "../postCard";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function BlogArticle({ post }: { post: BlogPost }) {
-  const publishedDate = formatBlogDate(post.publishedAt);
-  const updatedDate = formatBlogDate(post.updatedAt);
+  const locale = useLocale();
+  const t = useTranslations("Blog");
+  const publishedDate = formatBlogDate(post.publishedAt, locale);
+  const updatedDate = formatBlogDate(post.updatedAt, locale);
 
   return (
     <article className="mx-auto max-w-3xl space-y-8">
@@ -21,19 +24,19 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         <h1 className="text-4xl font-bold leading-tight text-slate-950 sm:text-5xl dark:text-white">{post.title}</h1>
         {post.excerpt ? <p className="text-xl leading-8 text-slate-700 dark:text-slate-200">{post.excerpt}</p> : null}
         <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm text-slate-500 dark:text-slate-400">
-          {publishedDate ? <time dateTime={post.publishedAt}>Publicado el {publishedDate}</time> : null}
-          {updatedDate && updatedDate !== publishedDate ? <time dateTime={post.updatedAt}>Actualizado el {updatedDate}</time> : null}
+          {publishedDate ? <time dateTime={post.publishedAt}>{t("published", { date: publishedDate })}</time> : null}
+          {updatedDate && updatedDate !== publishedDate ? <time dateTime={post.updatedAt}>{t("updated", { date: updatedDate })}</time> : null}
         </div>
       </header>
 
       {post.coverImage ? (
         /* CMS Media URLs are validated server-side. Remote optimization waits for the final production hostname. */
         /* eslint-disable-next-line @next/next/no-img-element */
-        <img alt={post.coverImage.alt} className="h-auto w-full rounded-2xl border border-slate-200 dark:border-slate-800" src={post.coverImage.url} />
+        <img alt={post.coverImage.alt} className="h-auto w-full rounded-2xl border border-slate-200 dark:border-slate-800" height={post.coverImage.height} src={post.coverImage.url} width={post.coverImage.width} />
       ) : null}
 
       {post.tags.length ? (
-        <ul aria-label="Etiquetas" className="flex flex-wrap gap-2">
+        <ul aria-label={t("tags")} className="flex flex-wrap gap-2">
           {post.tags.map((tag) => (
             <li className="rounded-full bg-slate-100 px-3 py-1 text-sm dark:bg-slate-800" key={tag.id}>
               {tag.name}
@@ -42,7 +45,14 @@ export default function BlogArticle({ post }: { post: BlogPost }) {
         </ul>
       ) : null}
 
-      <LexicalContent content={post.content} />
+      <LexicalContent content={post.content} labels={{
+        codeCopied: t("codeCopied"),
+        copyCode: t("copyCode"),
+        copyFailed: t("copyFailed"),
+        inThisArticle: t("inThisArticle"),
+        section: t("section"),
+        text: t("text"),
+      }} />
     </article>
   );
 }

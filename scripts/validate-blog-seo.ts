@@ -58,10 +58,12 @@ assert(
   typeof paginatedRobots === "object" && paginatedRobots !== null && !Array.isArray(paginatedRobots) && paginatedRobots.index === false,
   "Paginated indexes must be noindex.",
 );
+assert(getBlogIndexMetadata(1).robots === undefined, "The canonical blog index must remain indexable.");
 
 const jsonLd = serializeJsonLd([createBlogPostingJsonLd(post), createBreadcrumbJsonLd([{ name: "Blog", path: "/blog" }])]);
 assert(!jsonLd.includes("</script>"), "JSON-LD serialization must escape script delimiters.");
 assert(jsonLd.includes("\\u003c"), "JSON-LD serialization should escape angle brackets.");
+assert(createBlogPostingJsonLd(post).inLanguage === "es", "JSON-LD must remain independent of reader locale.");
 
 const sitemap = createBlogSitemapEntries([post, noIndexPost]);
 assert(sitemap.some((entry) => entry.url.endsWith("/blog/arquitectura-canonica")), "Indexable canonical post is missing from sitemap.");

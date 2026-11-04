@@ -1,9 +1,11 @@
 import { useTheme } from "next-themes";
 import { Palette } from "lucide-react";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 
 const ThemeChanger = () => {
   const { resolvedTheme, theme, setTheme } = useTheme();
+  const t = useTranslations("Header");
 
   useEffect(() => {
     if (theme) {
@@ -16,7 +18,7 @@ const ThemeChanger = () => {
       type="button"
       onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
       className="relative"
-      aria-label="Toggle color theme"
+      aria-label={t("toggleTheme")}
     >
       <Palette />
     </button>
