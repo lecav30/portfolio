@@ -122,10 +122,10 @@ hardcoding the currently non-production R2 development hostname into
 least-privilege `images.remotePatterns` entry and test optimization as a future
 deployment/SEO change.
 
-Spanish is the canonical public blog UI and content assumption. The existing
-locale cookie still changes portfolio chrome, but it does not select a different
-article or canonical blog URL. English blog routing and `hreflang` remain a
-future content-model decision.
+The public portfolio and blog runtime is English-only. Legacy locale cookies do
+not affect HTML, metadata, or CMS reads; Spanish resources and the language
+switch component remain available in source but are not rendered. CMS articles
+remain non-localized and use the existing canonical URLs without `hreflang`.
 
 ## Validation
 

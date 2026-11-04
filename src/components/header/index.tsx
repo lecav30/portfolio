@@ -3,7 +3,6 @@ import { Laptop, Menu } from "lucide-react";
 import ThemeChanger from "../themeChanger";
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
-import LanguageChanger from "../languageChanger";
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
@@ -92,9 +91,8 @@ const Header = ({ variant = "portfolio" }: { variant?: "blog" | "portfolio" }) =
                 {t("blog")}
               </Link>
             </li>
-            <li className="flex gap-3">
+            <li>
               <ThemeChanger />
-              <LanguageChanger />
             </li>
           </ul>
         </nav>
@@ -197,9 +195,8 @@ const Header = ({ variant = "portfolio" }: { variant?: "blog" | "portfolio" }) =
             </Link>
           </li>
           <li>
-            <div className="flex gap-4">
+            <div>
               <ThemeChanger />
-              <LanguageChanger />
             </div>
           </li>
         </ul>

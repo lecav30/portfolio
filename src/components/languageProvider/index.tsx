@@ -28,16 +28,18 @@ const LanguageContext = createContext<LanguageContextType | null>(null);
 export const LanguageProvider = ({
   children,
   initialLocale,
+  persistLocale = true,
 }: {
   children: ReactNode;
   initialLocale: Locale;
+  persistLocale?: boolean;
 }) => {
   const [locale, setLocale] = useState<Locale>(initialLocale);
 
   useEffect(() => {
     document.documentElement.lang = locale;
-    document.cookie = `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
-  }, [locale]);
+    if (persistLocale) document.cookie = `locale=${locale}; Path=/; Max-Age=31536000; SameSite=Lax`;
+  }, [locale, persistLocale]);
 
   return (
     <LanguageContext.Provider value={{ locale, setLocale }}>

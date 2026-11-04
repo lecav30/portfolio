@@ -6,7 +6,7 @@ export const SITE_URL = "https://www.sebastianlevano.com";
 export const RSS_PATH = "/blog/rss.xml";
 
 const siteOrigin = new URL(SITE_URL);
-const defaultBlogDescription = "Artículos técnicos, tutoriales, opiniones, reviews y noticias de Sebastian Lévano.";
+const defaultBlogDescription = "Technical articles, tutorials, opinions, reviews, and news from Sebastian Lévano.";
 
 const validDate = (value: string | undefined): Date | undefined => {
   if (!value) return undefined;
@@ -21,7 +21,7 @@ const pagePath = (path: string, page: number): string => (page > 1 ? `${path}?pa
 
 const rssAlternates = {
   types: {
-    "application/rss+xml": [{ title: "RSS del blog técnico de Sebastian Lévano", url: publicUrl(RSS_PATH) }],
+    "application/rss+xml": [{ title: "Sebastian Lévano technical blog RSS", url: publicUrl(RSS_PATH) }],
   },
 };
 
@@ -50,10 +50,10 @@ const sameOriginCanonical = (value: string | undefined): string | undefined => {
 export const getPostCanonicalUrl = (post: BlogPost): string =>
   sameOriginCanonical(post.canonicalUrl) ?? publicUrl(`/blog/${post.slug}`);
 
-export const getPostTitle = (post: BlogPost): string => post.seoTitle ?? `${post.title} | Blog técnico | Sebastian Lévano`;
+export const getPostTitle = (post: BlogPost): string => post.seoTitle ?? `${post.title} | Technical blog | Sebastian Lévano`;
 
 export const getPostDescription = (post: BlogPost): string =>
-  post.seoDescription ?? post.excerpt ?? `Artículo técnico: ${post.title}.`;
+  post.seoDescription ?? post.excerpt ?? `Technical article: ${post.title}.`;
 
 const socialImage = (post: BlogPost) =>
   post.coverImage
@@ -63,12 +63,12 @@ const socialImage = (post: BlogPost) =>
 export const getBlogIndexMetadata = (page: number): Metadata => {
   const canonical = publicUrl(pagePath("/blog", page));
   const isPaginated = page > 1;
-  const title = isPaginated ? `Blog técnico — página ${page} | Sebastian Lévano` : "Blog técnico | Sebastian Lévano";
+  const title = isPaginated ? `Technical blog — page ${page} | Sebastian Lévano` : "Technical blog | Sebastian Lévano";
 
   return {
     alternates: { canonical, ...rssAlternates },
     description: defaultBlogDescription,
-    openGraph: { description: defaultBlogDescription, locale: "es_PE", siteName: "Sebastian Lévano", title, type: "website", url: canonical },
+    openGraph: { description: defaultBlogDescription, locale: "en_US", siteName: "Sebastian Lévano", title, type: "website", url: canonical },
     robots: isPaginated ? { follow: true, index: false } : undefined,
     title,
     twitter: { card: "summary", description: defaultBlogDescription, title },
@@ -79,15 +79,15 @@ export const getCategoryMetadata = (category: BlogCategory, page: number): Metad
   const path = `/blog/category/${category.slug}`;
   const canonical = publicUrl(pagePath(path, page));
   const isPaginated = page > 1;
-  const description = category.description ?? `Artículos técnicos publicados en la categoría ${category.name}.`;
+  const description = category.description ?? `Technical articles published in the ${category.name} category.`;
   const title = isPaginated
-    ? `${category.name} — página ${page} | Blog técnico | Sebastian Lévano`
-    : `${category.name} | Blog técnico | Sebastian Lévano`;
+    ? `${category.name} — page ${page} | Technical blog | Sebastian Lévano`
+    : `${category.name} | Technical blog | Sebastian Lévano`;
 
   return {
     alternates: { canonical, ...rssAlternates },
     description,
-    openGraph: { description, locale: "es_PE", siteName: "Sebastian Lévano", title, type: "website", url: canonical },
+    openGraph: { description, locale: "en_US", siteName: "Sebastian Lévano", title, type: "website", url: canonical },
     robots: isPaginated ? { follow: true, index: false } : undefined,
     title,
     twitter: { card: "summary", description, title },
@@ -106,7 +106,7 @@ export const getPostMetadata = (post: BlogPost): Metadata => {
     openGraph: {
       description,
       images,
-      locale: "es_PE",
+      locale: "en_US",
       modifiedTime: post.updatedAt,
       publishedTime: post.publishedAt,
       siteName: "Sebastian Lévano",
@@ -132,7 +132,7 @@ export const createBlogPostingJsonLd = (post: BlogPost): Record<string, unknown>
     description: getPostDescription(post),
     headline: post.title,
     image,
-    inLanguage: "es",
+    inLanguage: "en",
     keywords: post.tags.length ? post.tags.map((tag) => tag.name).join(", ") : undefined,
     mainEntityOfPage: { "@id": getPostCanonicalUrl(post), "@type": "WebPage" },
     url: getPostCanonicalUrl(post),
@@ -245,10 +245,10 @@ export const createRssXml = (posts: BlogPost[]): string => {
     '<?xml version="1.0" encoding="UTF-8"?>',
     '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">',
     "<channel>",
-    "<title>Blog técnico de Sebastian Lévano</title>",
+    "<title>Sebastian Lévano technical blog</title>",
     `<link>${SITE_URL}/blog</link>`,
     `<description>${escapeXml(defaultBlogDescription)}</description>`,
-    `<language>es-PE</language>`,
+    `<language>en-US</language>`,
     `<atom:link href="${publicUrl(RSS_PATH)}" rel="self" type="application/rss+xml" />`,
     ...items,
     "</channel>",

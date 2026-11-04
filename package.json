@@ -11,6 +11,7 @@
     "validate:blog-contract": "bun scripts/validate-blog-contract.ts",
     "validate:blog-revalidation": "bun scripts/validate-blog-revalidation.ts",
     "validate:blog-seo": "bun scripts/validate-blog-seo.ts",
+    "validate:public-locale": "bun scripts/validate-public-locale.ts",
     "validate:technical-rendering": "bun scripts/validate-technical-rendering.tsx"
   },
   "dependencies": {
